@@ -1,0 +1,74 @@
+.imglogo{
+    width: 150px;
+}
+.navbar .navbar-nav .nav-link {
+    color: #000000;
+    font-size: 14px;
+    font-weight: normal;
+}
+.navbar .navbar-nav .nav-link:hover{
+    color: black;
+}
+
+@media only screen and (min-width: 992px) {
+    .navbar {
+      flex-direction: column;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .navbar {
+      flex-direction: column;
+    }
+
+    .navbar .nav-item {
+      padding: 0.5em 1em;
+    }
+  }
+  .navbar .navbar-nav {
+    margin-top: 0.5em;
+  
+  }
+
+  .img-custom{
+    width: 300px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .img-custom {
+        width: 170px;
+    }
+  }
+
+  .bg-custom {
+    background-image: linear-gradient(to right top, #1b191b, #222225, #292b2f, #2f3538, #373f40, #394345, #343e3d, #333d3b, #283230, #1d2826, #121e1c, #021512);
+  }
+.custom-footer {
+    background-image: linear-gradient(to right top, #1b191b, #222225, #292b2f, #2f3538, #373f40, #353e3f, #343e3d, #333d3b, #283230, #1d2826, #121e1c, #021512);
+}
+
+.button-logout{
+  border: none;
+  background: none;
+}
+
+@media screen and (max-width: 700px) {
+  .custom-footer {
+    padding: 20px;
+  }
+}
+
+.borderLink:hover {
+  border-bottom: 2px outset white;
+}
+
+.borderLink:focus {
+  border-bottom: 2px outset white;
+}
+
+@media screen and (max-width: 700px) {
+  .customDropdown {
+    padding: 5px;
+  }
+}
+
