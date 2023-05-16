@@ -367,6 +367,10 @@ a:hover {
   color: black;
 }
 
+.form-search{
+  justify-content: end;
+}
+
 
 
 

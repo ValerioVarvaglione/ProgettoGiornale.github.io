@@ -22,6 +22,10 @@ class Article extends Model
         'is_accepted',
     ];
 
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
     public function toSearchableArray(){
         return [
                 'id' => $this->id,

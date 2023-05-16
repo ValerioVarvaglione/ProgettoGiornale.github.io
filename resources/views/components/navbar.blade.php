@@ -1,5 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-custom" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom d-flex">
     <a class="navbar-brand p-2" href="#"><img src="/media/occhio.png" class="img-custom"></a>
+    <form action="{{route('article.search')}}" method="GET" class="d-flex form-search">
+        <input type="search" class="form-control" name="query" placeholder="Cosa stai cercando?" aria-label="Search">
+        <button class="btn btn-outline-info" type="submit">Cerca</button>
+    </form>
     <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="text-white"><i class="fa-solid fa-bars"></i></span>
     </button>
@@ -30,11 +34,6 @@
                     </li>
 
 
-                    <form action="{{route('article.search')}}" method="GET" class="d-flex">
-                        <input type="search" class="form-control" name="query" placeholder="Cosa stai cercando?" aria-label="Search">
-                        <button class="btn btn-outline-info" type="submit">Cerca</button>
-                    </form>
-
 
                     @if (Auth::user())
                     <li class="nav-item">
@@ -56,12 +55,12 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li class="nav-item">
-                                <button class="button-logout" type="submit"><a class="borderLink nav-link text-black" href="{{ route('careers') }}"><i class="fa-solid fa-envelope mx-1"></i> Lavora con noi</a></button>
+                                <button class="button-logout" type="submit"><a class="borderLink nav-link text-black" href="{{ route('careers') }}"><i class="fa-solid fa-envelope mx-1"></i>Lavora con noi</a></button>
                             </li>
                             <li class="nav-item">
                                 <form class="d-flex justify-content-center" action="{{ route('logout') }}" method="post">
                                     @csrf
-                                    <button class="button-logout" type="submit"><i class="fa-solid fa-arrow-right-from-bracket text-black mx-1"></i> Logout</button>      
+                                    <button class="button-logout" type="submit"><i class="fa-solid fa-arrow-right-from-bracket text-black mx-1"></i>Logout</button>      
                                 </form>  
                             </li
                         </ul>

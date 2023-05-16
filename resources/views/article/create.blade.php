@@ -52,6 +52,12 @@
                         </select>
                     </div>
                     <div class="mb-3">
+                        <label for="tags" class="form-label">Tags:</label>
+                        <input type="text" name="tags" id="tags" class="form-control" value="{{old('tags')}}">
+                        <span class="small fst-italic">Dividi ogni tag con una virgola</span>
+                    </div>
+                    
+                    <div class="mb-3">
                         <label for="body" class="form-label">Corpo del testo:</label>
                         <textarea name="body" id="body" cols="30" rows="7" class="form-control">{{ old('body') }}</textarea>
                     </div>
