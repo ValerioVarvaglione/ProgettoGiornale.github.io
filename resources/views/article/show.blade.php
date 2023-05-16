@@ -20,6 +20,11 @@
             <div class="col-12">
                 <p class="text-center">{{$article->body}}</p>
                 <p class="text-center my-3">Redatto da <span class="text-muted fst-italic">{{$article->user->name}}</span>  il <span class="text-muted fst-italic">{{$article->created_at->format('d/m/Y')}}</span></p>
+                <p class="small fst-italic text-capitalize">
+                    @foreach ($article->tags as $tag)
+                        #{{ $tag->name }}
+                    @endforeach
+                </p>
             </div>
         </div>
     </div>
