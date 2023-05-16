@@ -50,3 +50,18 @@ Route::middleware('admin')->group(function() {
     Route::get('/admin/{user}/set-writer', [AdminController::class, 'setWriter'])->name('admin.setWriter');
 });
 Route::get('/article/search', [ArticleController::class, 'articleSearch'])->name('article.search');
+Route::middleware('admin')->group(function() {
+    Route::get('/admin/edit/{tag}/tag', [AdminController::class, 'editTag'])->name('admin.editTag');
+});
+Route::middleware('admin')->group(function() {
+    Route::delete('/admin/delete/{tag}/tag', [AdminController::class, 'deleteTag'])->name('admin.deleteTag');
+});
+Route::middleware('admin')->group(function() {
+    Route::put('/admin/edit/{category}/category', [AdminController::class, 'editCategory'])->name('admin.editCategory');
+});
+Route::middleware('admin')->group(function() {
+    Route::delete('/admin/delete/{category}/category', [AdminController::class, 'deleteCategory'])->name('admin.deleteCategory');
+});
+Route::middleware('admin')->group(function() {
+    Route::post('/admin/category/store', [AdminController::class, 'storeCategory'])->name('admin.storeCategory');
+});

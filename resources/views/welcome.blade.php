@@ -1,10 +1,12 @@
 <x-layout>
 
 
+
+
     {{-- Meteo --}}
 
 
-     @if (session('message'))
+    @if (session('message'))
         <div class="alert alert-dark alert-dismissible fade show" role="alert">
             {{ session('message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -24,9 +26,10 @@
                 }
             }(document, 'script', 'weatherwidget-io-js');
         </script>
-    </div> 
+    </div>
 
     {{-- Primo Piano --}}
+
 
 
     <div class="container">
@@ -38,8 +41,7 @@
         <div class="row">
             <div class="col-12 col-md-6 my-3 col-sm-12">
                 @if (count($articles) > 0)
-                    <img class="thumb"
-                        src="{{ count($articles) > 0 ? Storage::url($articles->first()->image) : '' }}">
+                    <img class="thumb" src="{{ count($articles) > 0 ? Storage::url($articles->first()->image) : '' }}">
                     <h1 class="hover-underline-animation">
                         <a class="font-large" href="{{ route('article.show', $articles->first()) }}">
                             {{ $articles->first()->title }}
@@ -58,13 +60,25 @@
             <div class="col-12 col-md-6 col-sm-12">
                 <div class="row mb-5">
                     @foreach ($articles as $article)
+                        <p class="small fst-italic text-capitalize">
+                            @foreach ($article->tags as $tag)
+                                #{{ $tag->name }}
+                            @endforeach
+                        </p>
+                        @if ($article->category)
+                            <a href="{{ route('article.byCategory', ['category' => $article->category->id]) }}"
+                                class="small text-muted fst-italic text-capitalize">{{ $article->category->name }}</a>
+                        @else
+                            <p class="small text-muted fst-italic text-capitalize">
+                                Non categorizzato
+                            </p>
+                        @endif
                         @if ($loop->first)
                             @continue
                         @endif
                         <div class="col-12 col-md-6 my-2 card2 ">
                             <div class="card customCard">
-                                <img class="customImg mt-2" src="{{ Storage::url($article->image) }}"
-                                    alt="">
+                                <img class="customImg mt-2" src="{{ Storage::url($article->image) }}" alt="">
                                 <div class="card-body">
                                     <h5 class="hover-underline-animation">
                                         <a href="{{ route('article.show', $article) }}">
@@ -112,7 +126,8 @@
                             </h6>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore: {{ $articles->first()->user->name }}
+                                        class="fa-regular fa-user mx-2"></i>Autore:
+                                    {{ $articles->first()->user->name }}
                                 </p>
                             </div>
                         </div>
@@ -150,7 +165,8 @@
                             </h6>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore: {{ $articles->first()->user->name }}
+                                        class="fa-regular fa-user mx-2"></i>Autore:
+                                    {{ $articles->first()->user->name }}
                                 </p>
                             </div>
                         </div>
@@ -187,7 +203,8 @@
                             </h6>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore: {{ $articles->first()->user->name }}
+                                        class="fa-regular fa-user mx-2"></i>Autore:
+                                    {{ $articles->first()->user->name }}
                                 </p>
                             </div>
                         </div>
@@ -224,7 +241,8 @@
                             </h6>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore: {{ $articles->first()->user->name }}
+                                        class="fa-regular fa-user mx-2"></i>Autore:
+                                    {{ $articles->first()->user->name }}
                                 </p>
                             </div>
                         </div>
@@ -258,7 +276,8 @@
                             </h6>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore: {{ $articles->first()->user->name }}
+                                        class="fa-regular fa-user mx-2"></i>Autore:
+                                    {{ $articles->first()->user->name }}
                                 </p>
                             </div>
                         </div>
@@ -294,7 +313,8 @@
                             </h6>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore: {{ $articles->first()->user->name }}
+                                        class="fa-regular fa-user mx-2"></i>Autore:
+                                    {{ $articles->first()->user->name }}
                                 </p>
                             </div>
                         </div>
@@ -314,14 +334,16 @@
             </h2>
             <div class="col-12 col-md-6">
 
-                <iframe class="boxFrame" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe class="boxFrame" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
             <div class="col-12 col-md-6">
-                <iframe class="mb-5 boxFrame"
-                src="https://www.youtube.com/embed/nTWOaWXmo0Y?controls=0" title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
+                <iframe class="mb-5 boxFrame" src="https://www.youtube.com/embed/nTWOaWXmo0Y?controls=0"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
             </div>
         </div>
 

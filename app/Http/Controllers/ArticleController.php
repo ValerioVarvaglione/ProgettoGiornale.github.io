@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Category;
@@ -43,9 +44,10 @@ class ArticleController extends Controller
             'body' => 'required|min:25',
             'image' => 'image|required',
             'category' => 'required',
+            'tags' => 'required',
         ]);
 
-        Article::create([
+        $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
             'body' => $request->body,
@@ -54,7 +56,16 @@ class ArticleController extends Controller
             'user_id' => Auth::user()->id,
         ]);
 
-        return redirect(route('home'))->with('message', 'Articolo creato correttamente!');
+        $tags = explode(',', $request->tags);
+
+        foreach($tags as $tag){
+            $newTag = Tag::updateOrCreate([
+                'name' => $tag,
+            ]);
+            $article->tags()->attach($newTag);
+        }
+    
+         return redirect(route('home'))->with('message', 'Articolo creato correttamente!');
     }
 
     /**
@@ -107,6 +118,48 @@ class ArticleController extends Controller
         $articles = $user->articles->sortByDesc('created_at');
         return view('article.user', compact('user', 'articles'));
     }
+
+    public function editTag(Request $request, Tag $tag){
+        $request->validate([
+            'name' => 'required|unique:tags',
+        ]);
+        $tag->update([
+            'name' => strtolower($request->name),
+        ]);
+        return redirect(route('admin.dashboard'))->with('message', 'Hai aggiornato correttamente il tag');
+    }
    
+    public function deleteTag(Tag $tag){
+        foreach($tag->articles as $article){
+            $article->tags()->detach($tag);
+        }
+        $tag->delete();
+
+        return redirect(route('admin.dashboard'))->with('message', 'Hai eliminato correttamente il tag');
+    }
+
+    public function editCategory(Request $request, Category $category){
+        $request->validate([
+            'name' => 'required|unique:categories'
+        ]);
+        $category->update([
+            'name' => strtolower($request->name),
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('message', 'Hai aggiornato correttamente la categoria');
+    }
+
+    public function deleteCategory(Category $category){
+        $category->delete();
+
+        return redirect(route('admin.dashboard'))->with('message', 'Hai eliminato correttamente la categoria');
+    }
     
+    public function storeCategory(Request $request){
+        Category::create([
+            'name' => strtolower($request ->name),
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('message', 'Hai inserito correttamente la nuova categoria');
+    }
 }
