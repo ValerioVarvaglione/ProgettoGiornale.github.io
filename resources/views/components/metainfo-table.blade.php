@@ -3,7 +3,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Nome tag</th>
-            <th scope="col">Q.ta articoli collegati</th>
+            <th scope="col">Quantità articoli collegati</th>
             <th scope="col">Aggiorna</th>
             <th scope="col">Cancella</th>
         </tr>
