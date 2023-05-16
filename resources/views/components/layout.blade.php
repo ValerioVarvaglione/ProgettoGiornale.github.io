@@ -14,6 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display:wght@400;500;600&family=Tinos:wght@400;700&display=swap" rel="stylesheet">
 
 
+    {{-- Front End Card --}}
+    {{-- <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+
+        crossorigin="anonymous"> --}}
+
+
 </head>
 
 <body>

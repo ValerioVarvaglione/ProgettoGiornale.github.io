@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Mail;
 class PublicController extends Controller
 {
     public function homepage() {
-        $articles = Article::orderBy('created_at', 'desc')->take(5)->get();
+        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(5)->get();
         return view('welcome', compact('articles'));
     }
 
     public function __construct() {
         $this->middleware('auth')->except('homepage');
 
-        // return redirect(route('home'))->with('message', 'Devi registrarti per poterti candidare!');
+        //  return redirect(route('home'))->with('message', 'Devi registrarti per poterti candidare!');
 
     }
 
@@ -29,7 +29,7 @@ class PublicController extends Controller
     public function careersSubmit(Request $request){
         $request->validate([
             'role' => 'required',
-            'email' => 'reuired|email',
+            'email' => 'required|email',
             'message' => 'required',
         ]);
 
