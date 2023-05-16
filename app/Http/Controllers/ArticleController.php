@@ -10,9 +10,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    public function articleSearch(Request $request){
+        $query = $request->input('query');
+        $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
+        return view ('article.search-index', compact('articles', 'query'));
+    }
+   
     public function index()
     {
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->get();
@@ -23,18 +27,14 @@ class ArticleController extends Controller
         $this->middleware('auth')->except('index', 'show','byCategory','byUser', 'category');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
         // Route::get('article/create', [ArticleController::class, 'create'])->name('article.create');
         return view('article.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+   
     public function store(Request $request)
     {
         $request->validate([

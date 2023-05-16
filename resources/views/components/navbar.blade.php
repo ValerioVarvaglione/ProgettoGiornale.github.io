@@ -28,6 +28,14 @@
                     <li class="nav-item">
                         <a class="borderLink nav-link link-custom text-white" href="{{ route('article.index') }}">Tutti gli articoli</a>
                     </li>
+
+
+                    <form action="{{route('article.search')}}" method="GET" class="d-flex">
+                        <input type="search" class="form-control" name="query" placeholder="Cosa stai cercando?" aria-label="Search">
+                        <button class="btn btn-outline-info" type="submit">Cerca</button>
+                    </form>
+
+
                     @if (Auth::user())
                     <li class="nav-item">
                         <a class="borderLink nav-link text-white" href="{{ route('article.create') }}">Inserisci articolo</a>
