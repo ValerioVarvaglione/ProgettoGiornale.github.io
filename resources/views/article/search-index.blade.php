@@ -11,7 +11,6 @@
 
     <div class="container my-5">
         <div class="row justify-content-around">
-            @foreach ($articles as $article)
                 @foreach ($articles as $article)
                     <p class="small fst-italic text-capitalize">
                         @foreach ($article->tags as $tag)

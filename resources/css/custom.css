@@ -367,8 +367,16 @@ a:hover {
   color: black;
 }
 
+.offcanvas-cerca{
+  display: flex;
+  
+}
 
 
+#category{
+  position: relative;
+  bottom: 6px;
+}
 
 
 
