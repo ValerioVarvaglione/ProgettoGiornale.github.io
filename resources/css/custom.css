@@ -1,11 +1,11 @@
 *{
   font-family: 'Barlow', sans-serif;
 }
-body{
+/* body{
   background-image:linear-gradient(rgba(220, 216, 216, 0.629),rgba(255, 255, 255, 0.458)), url(/public/media/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 
 
@@ -71,6 +71,14 @@ a{
   }
 }
 
+@media screen and (max-width: 400px) {
+  .customImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .customCard {
  
   border: none;
@@ -79,19 +87,18 @@ a{
 .customCard1 {
  
   border: none;
-  width: 200px;
+  
 }
 
 .customImg{
   width: 300px;
   height: 150px;
-  object-fit: cover;
+  
   padding-left: 0;
 }
 .customImg1{
   width: 300px;
   height: 150px;
-  object-fit: cover;
   padding-top: 0;
   
 }
@@ -121,6 +128,15 @@ a{
 
 
 @media screen and (max-width: 1300px) {
+  .div-politica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+}
+
+@media screen and (max-width: 390px) {
   .card2 {
     display: flex;
     justify-content: center;
@@ -216,57 +232,107 @@ a:hover {
 }
 .contenitore{
   position: relative;
-  
-
+ 
 }
-.riquadro{
+
+
+.contenitore::before{
+  content: "";
   position: absolute;
   width: 100px;
   height: 30px;   
   bottom: 10px;
-  right: 1200px;
+  left: 0px;
   z-index: -1;
   background-color: rgba(246, 255, 0, 0.645);
 }
-.riquadro1{
+.contenitore1{
+  position: relative;
+ 
+}
+.contenitore1::before{
+  content: "";
   position: absolute;
   width: 100px;
   height: 30px;   
   bottom: 10px;
   right: 1200px;
   z-index: -1;
+  left: 0px;
   background-color: rgba(1, 174, 21, 0.645);
 }
+.contenitore2{
+  position: relative;
+ 
+}
 
-.riquadro2{
+.contenitore3{
+  position: relative;
+ 
+}
+
+.contenitore4{
+  position: relative;
+ 
+}
+
+.contenitore5{
+  position: relative;
+ 
+}
+.contenitore6{
+  position: relative;
+ 
+}
+/* .contenitore6::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
+  animation: 1s blinker linear infinite;
+  bottom: 20px;
+ right: 1200px;
+} */
+
+.contenitore2::before{
+  content: "";
   position: absolute;
   width: 100px;
   height: 30px;   
   bottom: 10px;
   right: 1200px;
+  left: 0px;
   z-index: -1;
   background-color: rgba(225, 166, 38, 0.645);
 }
-.riquadro3{
+.contenitore3::before{
+  content: "";
   position: absolute;
   width: 100px;
   height: 30px;   
   bottom: 10px;
   right: 1200px;
+  left: 0px;
   z-index: -1;
   background-color: rgba(1, 151, 174, 0.645);
 }
 
-.riquadro4{
+.contenitore4::before{
+  content: "";
   position: absolute;
   width: 100px;
   height: 30px;   
   bottom: 10px;
   right: 1200px;
+  left: 0px;
   z-index: -1;
   background-color: rgba(85, 0, 255, 0.645);
 }
-.riquadro5{
+
+.contenitore5::before{
   position: absolute;
   width: 100px;
   height: 30px;   
@@ -274,6 +340,8 @@ a:hover {
   right: 1200px;
   z-index: -1;
   background-color: rgba(174, 1, 90, 0.645);
+  content: "";
+  left: 0px;
 }
 
 .card{
@@ -283,17 +351,17 @@ a:hover {
 
 
 
-.blink_text {
+/* .blink_text {
+  content: "";
     position: absolute;
-    bottom: 20px;
-    right: 1095px;
+   
     z-index: -1;
     width: 15px;
     height: 15px;
     background: red;
     border-radius: 50%;
     animation: 1s blinker linear infinite;
-}
+} */
 
 @keyframes blinker {
     0% {
@@ -406,19 +474,16 @@ a:hover {
   color: black;
 }
 
-.form-search{
-  justify-content: end;
-}
-
-.btn-secondary {
-  border: none;
-  background:none;
+.offcanvas-cerca{
+  display: flex;
+  
 }
 
 
-
-
-
+#category{
+  position: relative;
+  bottom: 6px;
+}
 
 
 

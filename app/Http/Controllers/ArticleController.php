@@ -25,7 +25,7 @@ class ArticleController extends Controller
     }
 
     public function __construct(){
-        $this->middleware('auth')->except('index', 'show','byCategory','byUser', 'category');
+        $this->middleware('auth')->except('index', 'show','byCategory','byUser', 'category', 'articleSearch');
     }
 
     
@@ -40,7 +40,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|unique:articles|min:10',
-            'subtitle' => 'required|unique:articles|min:15',
+            'subtitle' => 'required|unique:articles|min:15|max:255',
             'body' => 'required|min:25',
             'image' => 'image|required',
             'category' => 'required',

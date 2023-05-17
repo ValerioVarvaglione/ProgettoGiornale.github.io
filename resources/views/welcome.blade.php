@@ -1,6 +1,17 @@
 <x-layout>
 
 
+    <div class="news-bar">
+        <div>
+            <span class="live-news">LIVE NEWS</span>
+        </div>
+        <span class="dot"></span>
+       <marquee behavior="scroll" direction="left">
+          <span id="news"></span>
+        </marquee>
+      </div>
+    
+    
 
 
     {{-- Meteo --}}
@@ -28,46 +39,64 @@
         </script>
     </div>
 
+
+
+
+
+
+
     {{-- Primo Piano --}}
 
 
 
     <div class="container">
-        <div class="">
-            <h1 class="my-5 fw-bold subTitle">Primo Piano <span class="d-flex justify-content-end">
-                    <h5 class="news p-1"> News</h5>
-                </span></h1>
-        </div>
+
+        <h1 class="my-5 fw-bold subTitle">Primo Piano <span class="d-flex justify-content-end">
+                <h5 class="news p-1"> News</h5>
+            </span></h1>
+
+
         <div class="row">
-            <div class="col-12 col-md-5 my-3 col-sm-12">
+            <div class="col-12 col-md-6 my-3 col-sm-12">
+
                 @if (count($articles) > 0)
+                    <a id="category" href="{{ route('article.byCategory', ['category' => $articles->first()->category->name]) }}"
+                        class="small text-muted fst-italic text-capitalize">{{ $articles->first()->category->name }}</a>
                     <img class="thumb" src="{{ count($articles) > 0 ? Storage::url($articles->first()->image) : '' }}">
                     <h1 class="hover-underline-animation">
                         <a class="" href="{{ route('article.show', $articles->first()) }}">
                             {{ $articles->first()->title }}
                         </a>
-
                     </h1>
-                    <div>
+                    <div class="d-flex justify-content-between">
                         <p class="small text-muted text-capitalize"><i class="fa-regular fa-user mx-2"></i>Autore:
-                            {{ $articles->first()->user->name }}</p>
-                        
+                            {{ $articles->first()->user->name }} </p>
+                        <p class="small fst-italic text-capitalize">
+                            #{{ $articles->first()->tags->last()->name }}
+                        </p>
                     </div>
                 @else
                     <h2>Non ci sono nuovi articoli!</h2>
                 @endif
             </div>
 
-            <div class="col-12 col-md-6 col-sm-12">
+            <div class="col-12 col-md-6 col-sm-12 card2">
                 <div class="row mb-5">
-                    @foreach ($articles as $article)
 
 
-
+                    @foreach ($articles->take(5) as $article)
                         @if ($loop->first)
                             @continue
                         @endif
-                        <div class="col-12 col-md-6 mx-auto my-2 px-2">
+                        <div class="col-12 col-md-6 my-2 ">
+                            @if ($article->category)
+                                <a href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                                    class="small text-muted fst-italic text-capitalize">{{ $article->category->name }}</a>
+                            @else
+                                <p class="small text-muted fst-italic text-capitalize">
+                                    Non categorizzato
+                                </p>
+                            @endif
                             <div class="card customCard">
                                 <img class="customImg mt-2 " src="{{ Storage::url($article->image) }}" alt="">
                                 <div class="card-body">
@@ -76,15 +105,15 @@
                                             {{ $article->title }}
                                         </a>
                                     </h5>
-                                    <div>
+                                    <div class="d-flex justify-content-between">
                                         <p class="small text-muted text-capitalize"><i
                                                 class="fa-regular fa-user mx-2"></i>Autore:
-                                            {{ $articles->first()->user->name }}</p>
-                                            <p class="small fst-italic text-capitalize">
-                                                @foreach ($article->tags as $tag)
-                                                    #{{ $tag->name }}
-                                                @endforeach
-                                            </p>
+                                            {{ $article->user->name }}</p>
+                                        <p class="small fst-italic text-capitalize">
+                                            @foreach ($article->tags as $tag)
+                                                #{{ $tag->name }}
+                                            @endforeach
+                                        </p>
                                     </div>
                                    
                               
@@ -98,13 +127,16 @@
     </div>
 
 
+
     {{-- Sezione Sport --}}
 
 
-    <div class="container ">
-        <div class="">
-            <h2 class="my-5 fw-bold subTitle1 contenitore">Sport <div class="riquadro"></div>
-            </h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="my-5 fw-bold subTitle1 contenitore">Sport</h2>
+            </div>
+            
         </div>
 
 
@@ -112,8 +144,8 @@
 
 
         <div class="row mb-5 w-100 justify-content-around">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3 my-2 mx-auto">
+            @foreach ($articles->where('category_id', 4)->take(5) as $article)
+                <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">
                         <img class="customImg1" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -143,16 +175,17 @@
 
 
     <div class="container ">
-        <div class="">
-            <h2 class="my-5 fw-bold subTitle1 contenitore">Politica <div class="riquadro1"></div>
-            </h2>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="my-5 fw-bold subTitle1 contenitore1">Politica</h2>
+            </div>
         </div>
 
 
 
-        <div class="row mb-5 w-100 justify-content-around">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3 my-2 mx-auto">
+        <div class="row mb-5 w-100 justify-content-around div-politica">
+            @foreach ($articles->where('category_id', 1)->take(5) as $article)
+                <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -181,16 +214,17 @@
     {{-- Sezione Tech --}}
 
     <div class="container ">
-        <div class="">
-            <h2 class="my-5 fw-bold subTitle1 contenitore">Tech <div class="riquadro2"></div>
-            </h2>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="my-5 fw-bold subTitle1 contenitore2">Tech</h2>
+            </div>
         </div>
 
 
 
         <div class="row mb-5 w-100 justify-content-around">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3 my-2 mx-auto">
+            @foreach ($articles->where('category_id', 6)->take(5) as $article)
+                <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -219,16 +253,18 @@
 
 
     <div class="container ">
-        <div class="">
-            <h2 class="my-5 fw-bold subTitle1 contenitore">Economia <div class="riquadro3"></div>
-            </h2>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="my-5 fw-bold subTitle1 contenitore3">Economia</h2>
+            </div>
+            
         </div>
 
 
 
         <div class="row mb-5 w-100 justify-content-around">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3 my-2 mx-auto">
+            @foreach ($articles->where('category_id', 2)->take(5) as $article)
+                <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -254,16 +290,19 @@
 
     </div>
     <div class="container ">
-        <div class="">
-            <h2 class="my-5 fw-bold subTitle1 contenitore">Food & Drink <div class="riquadro4"></div>
-            </h2>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="my-5 fw-bold subTitle1 contenitore4">Food & Drink <div class="riquadro4"></div>
+                </h2>
+            </div>
+          
         </div>
 
 
 
         <div class="row mb-5 w-100 justify-content-around">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3 my-2 mx-auto">
+            @foreach ($articles->where('category_id', 3)->take(5) as $article)
+                <div class="col-12 col-md-2 mx-2 my-2 card2 ">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -291,16 +330,17 @@
     {{-- Sezione Intrattenimento --}}
 
     <div class="container ">
-        <div class="">
-            <h2 class="my-5 fw-bold subTitle1 contenitore">Intrattenimento <div class="riquadro5"></div>
-            </h2>
+        <div class="row">
+            <div class="col">
+                <h2 class="my-5 fw-bold subTitle1 contenitore5">Intrattenimento</h2>
+            </div>
         </div>
 
 
 
         <div class="row mb-5 w-100 justify-content-around">
-            @foreach ($articles as $article)
-                <div class="col-12 col-md-3 my-2 mx-auto">
+            @foreach ($articles->where('category_id', 5)->take(5) as $article)
+                <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -322,15 +362,13 @@
 
         </div>
 
-    </div>
-
-    {{-- Sezione LiveNews --}}
+        {{-- Sezione LiveNews --}}
 
     <div class="container">
         <div class="row">
-            <h2 class="my-5 fw-bold subTitle contenitore">LIVE:NEWS<div class="blink_text"></div>
+            <h2 class="my-5 fw-bold subTitle contenitore6">LIVE:NEWS<div class="blink_text"></div>
             </h2>
-            <div class="col-12 col-md-2 mx-auto">
+            <div class="col-12 col-md-6">
 
                 <iframe class="boxFrame" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player"
                     frameborder="0"
@@ -346,5 +384,9 @@
         </div>
 
     </div>
+
+
+    </div>
+
 
 </x-layout>

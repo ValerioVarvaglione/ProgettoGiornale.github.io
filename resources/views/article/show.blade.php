@@ -5,7 +5,7 @@
             <h1 class="fs-3">
                 {{$article->title}}
             </h1>
-        </div>   
+        </div>
     </div>
 
 
@@ -21,14 +21,14 @@
                 <p class="fs-5">{{$article->body}}</p>
             </div>
             <div class="col-12 d-flex justify-content-between">
-                
+
                 <p class="fs-6 ">Redatto da <span class="text-muted fst-italic">{{$article->user->name}}</span>  il <span class="text-muted fst-italic">{{$article->created_at->format('d/m/Y')}}</span></p>
                 <p class="fs-6 fst-italic text-capitalize mx-2">
                     @foreach ($article->tags as $tag)
                         #{{ $tag->name }}
                     @endforeach
                 </p>
-                
+
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
         @if (Auth::user() && Auth::user()->is_revisor)
         <a href="{{ route('revisor.acceptArticle', compact('article'))}}" class="btn btn-success text-white my-3 mx-2">Accetta articolo</a>
         <a href="{{ route('revisor.rejectArticle', compact('article'))}}" class="btn btn-danger text-white my-3">Rifiuta articolo</a>
-    @endif  
-    </div>                  
-                    
+    @endif
+    </div>
+
     </x-layout>
