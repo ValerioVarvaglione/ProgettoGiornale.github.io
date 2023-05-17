@@ -34,16 +34,16 @@
 
     <div class="container">
         <div class="">
-            <h1 class="my-5 fw-bold subTitle display-3">Primo Piano <span class="d-flex justify-content-end">
+            <h1 class="my-5 fw-bold subTitle">Primo Piano <span class="d-flex justify-content-end">
                     <h5 class="news p-1"> News</h5>
                 </span></h1>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 my-3 col-sm-12">
+            <div class="col-12 col-md-5 my-3 col-sm-12">
                 @if (count($articles) > 0)
                     <img class="thumb" src="{{ count($articles) > 0 ? Storage::url($articles->first()->image) : '' }}">
                     <h1 class="hover-underline-animation">
-                        <a class="font-large" href="{{ route('article.show', $articles->first()) }}">
+                        <a class="" href="{{ route('article.show', $articles->first()) }}">
                             {{ $articles->first()->title }}
                         </a>
 
@@ -51,6 +51,7 @@
                     <div>
                         <p class="small text-muted text-capitalize"><i class="fa-regular fa-user mx-2"></i>Autore:
                             {{ $articles->first()->user->name }}</p>
+                        
                     </div>
                 @else
                     <h2>Non ci sono nuovi articoli!</h2>
@@ -60,27 +61,17 @@
             <div class="col-12 col-md-6 col-sm-12">
                 <div class="row mb-5">
                     @foreach ($articles as $article)
-                        <p class="small fst-italic text-capitalize">
-                            @foreach ($article->tags as $tag)
-                                #{{ $tag->name }}
-                            @endforeach
-                        </p>
-                        @if ($article->category)
-                            <a href="{{ route('article.byCategory', ['category' => $article->category->id]) }}"
-                                class="small text-muted fst-italic text-capitalize">{{ $article->category->name }}</a>
-                        @else
-                            <p class="small text-muted fst-italic text-capitalize">
-                                Non categorizzato
-                            </p>
-                        @endif
+
+
+
                         @if ($loop->first)
                             @continue
                         @endif
-                        <div class="col-12 col-md-6 my-2 card2 ">
+                        <div class="col-12 col-md-6 mx-auto my-2 px-2">
                             <div class="card customCard">
-                                <img class="customImg mt-2" src="{{ Storage::url($article->image) }}" alt="">
+                                <img class="customImg mt-2 " src="{{ Storage::url($article->image) }}" alt="">
                                 <div class="card-body">
-                                    <h5 class="hover-underline-animation">
+                                    <h5 class="hover-underline-animation font-title">
                                         <a href="{{ route('article.show', $article) }}">
                                             {{ $article->title }}
                                         </a>
@@ -89,7 +80,14 @@
                                         <p class="small text-muted text-capitalize"><i
                                                 class="fa-regular fa-user mx-2"></i>Autore:
                                             {{ $articles->first()->user->name }}</p>
+                                            <p class="small fst-italic text-capitalize">
+                                                @foreach ($article->tags as $tag)
+                                                    #{{ $tag->name }}
+                                                @endforeach
+                                            </p>
                                     </div>
+                                   
+                              
                                 </div>
                             </div>
                         </div>
@@ -115,11 +113,11 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-3 my-2 mx-auto">
                     <div class="card customCard customCard1">
-                        <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
+                        <img class="customImg1" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation">
+                            <h6 class="hover-underline-animation title-section">
                                 <a href="{{ route('article.show', $article) }}">
                                     {{ $article->title }}
                                 </a>
@@ -154,11 +152,11 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-3 my-2 mx-auto">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation">
+                            <h6 class="fw-bold hover-underline-animation title-section">
                                 <a href="{{ route('article.show', $article) }}">
                                     {{ $article->title }}
                                 </a>
@@ -192,24 +190,19 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-3 my-2 mx-auto">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation">
+                            <h5 class="fw-bold hover-underline-animation title-section">
                                 <a href="{{ route('article.show', $article) }}">
                                     {{ $article->title }}
                                 </a>
-                            </h6>
+                            </h5>
                             <div>
                                 <p class="small text-muted text-capitalize"><i
                                         class="fa-regular fa-user mx-2"></i>Autore:
                                     {{ $articles->first()->user->name }}
-                                </p>
-                                <p class="small fst-italic text-capitalize">
-                                    @foreach($article->tags as $tag)
-                                        #{{$tag->name}}
-                                    @endforeach
                                 </p>
                             </div>
                         </div>
@@ -235,11 +228,11 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-3 my-2 mx-auto">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation">
+                            <h6 class="fw-bold hover-underline-animation title-section">
                                 <a href="{{ route('article.show', $article) }}">
                                     {{ $article->title }}
                                 </a>
@@ -270,11 +263,11 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-2 mx-2 my-2 card2 ">
+                <div class="col-12 col-md-3 my-2 mx-auto">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation">
+                            <h6 class="fw-bold hover-underline-animation title-section">
                                 <a href="{{ route('article.show', $article) }}">
                                     {{ $article->title }}
                                 </a>
@@ -307,11 +300,11 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-3 my-2 mx-auto">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation">
+                            <h6 class="fw-bold hover-underline-animation title-section">
                                 <a href="{{ route('article.show', $article) }}">
                                     {{ $article->title }}
                                 </a>
@@ -337,7 +330,7 @@
         <div class="row">
             <h2 class="my-5 fw-bold subTitle contenitore">LIVE:NEWS<div class="blink_text"></div>
             </h2>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-2 mx-auto">
 
                 <iframe class="boxFrame" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player"
                     frameborder="0"

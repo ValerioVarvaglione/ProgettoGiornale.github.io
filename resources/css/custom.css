@@ -2,7 +2,7 @@
   font-family: 'Barlow', sans-serif;
 }
 body{
-  background-image:linear-gradient(rgba(255, 255, 255, 0.629),rgba(255, 255, 255, 0.458)), url(/public/media/bg.jpg);
+  background-image:linear-gradient(rgba(220, 216, 216, 0.629),rgba(255, 255, 255, 0.458)), url(/public/media/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -29,13 +29,29 @@ body{
   margin-top: 0.5em;
   
 }
+
+.h1-accedi{
+  font-size: 25px;
+  font-size: bold;
+  color: #020202;
+  
+}
+.para-accedi{
+  font-size: 16px;
+  font-weight: lighter;
+
+}
+.footer{
+  padding: 0 0;
+  height: 300px;
+}
 /* 
 .subTitle{
   margin-bottom: 10px
 } */
 
 .img-logo{
-  width: 150px;
+  width: 130px;
 }
 
 a{
@@ -67,21 +83,23 @@ a{
 }
 
 .customImg{
-  width: 280px;
-  height: 180px;
+  width: 300px;
+  height: 150px;
   object-fit: cover;
-  padding-top: 0;
+  padding-left: 0;
 }
 .customImg1{
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 150px;
   object-fit: cover;
   padding-top: 0;
+  
 }
 
 .card-body{
   margin: 0;
   padding: 0;
+  
 }
 
 .subTitle {
@@ -116,7 +134,8 @@ a{
 }
 
 .showImg {
-  width: 50vw;
+  width: 50%;
+  border-radius: 10px;
 }
 
 .boxCard {
@@ -151,7 +170,23 @@ p{
   display: inline-block;
   position: relative;
   color: #000000;
+  font-size: 25px;
 }
+
+.font-title{
+  font-size: 18px;
+  
+  
+  
+}
+
+.title-section{
+  font-size: 18px;
+  text-align: left;
+  
+  
+}
+
 
 .hover-underline-animation::after {
   content: '';
@@ -294,6 +329,10 @@ a:hover {
     width: 22rem;
   }
 }
+.boxFrame{
+  width: 300px;
+  height: 180px;
+}
 
 @media screen and (max-width: 720px) {
   .indexColArticles {
@@ -370,6 +409,13 @@ a:hover {
 .form-search{
   justify-content: end;
 }
+
+.btn-secondary {
+  border: none;
+  background:none;
+}
+
+
 
 
 

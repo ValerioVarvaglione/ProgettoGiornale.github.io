@@ -39,7 +39,7 @@
                 <p class="small fst-italic text-capitalize">
                     @foreach ($article->tags as $tag)
                         #{{ $tag->name }}
-                    @endforeach
+            @endforeach
                 </p>
                 @if ($article->category)
                     <a href="{{ route('article.byCategory', ['category' => $article->category->id]) }}"
@@ -73,6 +73,8 @@
                     </div>
                 </div>
             @endforeach
+            
+            
         </div>
     </div>
 

@@ -1,6 +1,6 @@
-<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5  border-top d-flex justify-content-center custom-footer gx-0 ">
-    <div class="col mb-3">
-      <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+<footer class="row row-cols-1 row-cols-sm-2 row-cols-md-6 py-5 footer  d-flex justify-content-center custom-footer gx-0 ">
+    <div class="col mb-3 ">
+      <a href="/" class="d-flex align-items-center link-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
       </a>
       <p class=" mx-3 fw-bold text-white">© Occhio Del Reporter 2022</p>

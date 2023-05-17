@@ -33,7 +33,7 @@
                     </td>
                 @else
                     <td>
-                        <form action="{{route('admin.editCategory', ['category' => $metainfo])}}" method="POST">
+                        <form action="{{route('admin.editCategory', ['category' => $metaInfo])}}" method="POST">
                             @csrf
                             @method('put')
                             <input type="text" name="name" placeholder="Nuovo nome"
@@ -53,3 +53,4 @@
         @endforeach
     </tbody>
 </table>
+

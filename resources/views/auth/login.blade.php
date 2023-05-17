@@ -1,10 +1,12 @@
-<x-layout>
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <h1>Accedi</h1>
+@vite (['resources/css/app.css', 'resources/js/app.js'])
 
-                <p>Bentornato! Siamo pronti a leggere cosa c'è di nuovo</p>
+<x-navbar />
+    <div class="container mt-5 mb-5 height">
+        <div class="row">
+            <div class="col-12 col-md-6   align-items-center ">
+                <h1 class="h1-accedi">Accedi</h1>
+
+                <p class="para-accedi">Bentornato! Siamo pronti a leggere cosa c'è di nuovo</p>
 
 
 
@@ -38,4 +40,4 @@
     </div>
 
 
-</x-layout>
+

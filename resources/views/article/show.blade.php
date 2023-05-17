@@ -2,7 +2,7 @@
 
     <div class="container-fluid p-5 text-center text-dark">
         <div class= "row justify-content-center">
-            <h1 class="">
+            <h1 class="fs-3">
                 {{$article->title}}
             </h1>
         </div>   
@@ -14,17 +14,21 @@
             <div class="col-12 d-flex justify-content-center">
                 <img src="{{ Storage::url($article->image) }}" class="img-fluid my-3 showImg" alt="">
             </div>
-            <div col-12>
-                <h4 class="text-center my-3">{{ $article->subtitle }}</h4>
+            <div class="col-12">
+                <h4 class=" my-3 fs-4">{{ $article->subtitle }}</h4>
             </div>
             <div class="col-12">
-                <p class="text-center">{{$article->body}}</p>
-                <p class="text-center my-3">Redatto da <span class="text-muted fst-italic">{{$article->user->name}}</span>  il <span class="text-muted fst-italic">{{$article->created_at->format('d/m/Y')}}</span></p>
-                <p class="small fst-italic text-capitalize">
+                <p class="fs-5">{{$article->body}}</p>
+            </div>
+            <div class="col-12 d-flex justify-content-between">
+                
+                <p class="fs-6 ">Redatto da <span class="text-muted fst-italic">{{$article->user->name}}</span>  il <span class="text-muted fst-italic">{{$article->created_at->format('d/m/Y')}}</span></p>
+                <p class="fs-6 fst-italic text-capitalize mx-2">
                     @foreach ($article->tags as $tag)
                         #{{ $tag->name }}
                     @endforeach
                 </p>
+                
             </div>
         </div>
     </div>

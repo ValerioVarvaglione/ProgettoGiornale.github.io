@@ -1,12 +1,10 @@
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom d-flex">
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom ">
+     
     <a class="navbar-brand p-2" href="#"><img src="/media/occhio.png" class="img-custom"></a>
-    <form action="{{route('article.search')}}" method="GET" class="d-flex form-search">
-        <input type="search" class="form-control" name="query" placeholder="Cosa stai cercando?" aria-label="Search">
-        <button class="btn btn-outline-info" type="submit">Cerca</button>
-    </form>
     <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="text-white"><i class="fa-solid fa-bars"></i></span>
     </button>
+  
     <div class="container d-flex justify-content-center boxNavbar">
         <div class="row">
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,11 +39,21 @@
                     </li>
                     @endif
                     @if (Auth::user() && Auth::user()->is_revisor)
-                    <li><a href="{{ route('revisor.dashboard') }}" class="borderLink text-white nav-link link-custom my-2">Dashboard del revisore</a>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle text-white my-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          Dashboard
+                        </a>
+                        @if (Auth::user() && Auth::user()->is_admin)
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li><a href="{{ route('revisor.dashboard') }}" class=" text-dark nav-link my-2">Dashboard del revisore</a>
+                          <li><a href="{{ route('admin.dashboard') }}" class="borderLink text-dark nav-link link-custom my-2">Dashboard del amministratore</a>
+                          
+                        </ul>
+                      </div>
                     </li>
                     @endif
-                    @if (Auth::user() && Auth::user()->is_admin)
-                    <li><a href="{{ route('admin.dashboard') }}" class="borderLink text-white nav-link link-custom my-2">Dashboard del amministratore</a>
+                    
+                    
                     </li>
                     @endif
                     @if (Auth::user())
@@ -62,7 +70,7 @@
                                     @csrf
                                     <button class="button-logout" type="submit"><i class="fa-solid fa-arrow-right-from-bracket text-black mx-1"></i>Logout</button>      
                                 </form>  
-                            </li
+                            </li>
                         </ul>
                       </li>  
                     @else
