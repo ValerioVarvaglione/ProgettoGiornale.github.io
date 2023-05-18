@@ -2,21 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         $adminRequests = User::where('is_admin', NULL)->get();
         $revisorRequests = User::where('is_revisor', NULL)->get();
         $writerRequests = User::where('is_writer', NULL)->get();
 
-        return view('admin.dashboard', compact('adminRequests','revisorRequests','writerRequests'));
-
+        return view('admin.dashboard', compact('adminRequests', 'revisorRequests', 'writerRequests'));
     }
 
-    public function setAdmin(User $user) {
+    public function setAdmin(User $user)
+    {
         $user->update([
             'is_admin' => true,
         ]);
@@ -24,7 +28,8 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('message', 'Hai correttamente reso amministratore l\'utente scelto');
     }
 
-    public function setRevisor(User $user) {
+    public function setRevisor(User $user)
+    {
         $user->update([
             'is_revisor' => true,
         ]);
@@ -32,7 +37,8 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('message', 'Hai correttamente reso revisore  l\'utente scelto');
     }
 
-    public function setWriter(User $user) {
+    public function setWriter(User $user)
+    {
         $user->update([
             'is_writer' => true,
         ]);
@@ -40,7 +46,8 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('message', 'Hai correttamente reso redattore  l\'utente scelto');
     }
 
-    public function editTag(Request $request, Tag $tag){
+    public function editTag(Request $request, Tag $tag)
+    {
         $request->validate([
             'name' => 'required|unique:tags',
         ]);
@@ -48,12 +55,13 @@ class AdminController extends Controller
         $tag->update([
             'name' => strtolower($request->name),
         ]);
-        
+
         return redirect(route('admin.dashboard'))->with('message', 'hai correttamente aggiornato il tag');
     }
 
-    public function deleteTag(Tag $tag){
-        foreach($tag->articles as $article){
+    public function deleteTag(Tag $tag)
+    {
+        foreach ($tag->articles as $article) {
             $article->tags()->detach($tag);
         }
         $tag->delete();
@@ -61,5 +69,33 @@ class AdminController extends Controller
         return redirect(route('admin.dashboard'))->with('message', 'Hai correttamente eliminato il tag');
     }
 
-    
+    public function editCategory(Request $request, Category $category)
+    {
+        $request->validate([
+            'name' => 'required|unique:categories',
+        ]);
+
+        $category->update([
+            'name' => strtolower($request->name),
+        ]);
+
+        return redirect(route('admin.dashboard'))->with('message', 'hai correttamente aggiornato il category');
+    }
+
+    public function deleteCategory(Category $category)
+    {
+
+        $category->delete();
+        return redirect(route('admin.dashboard'))->with('message', 'Hai correttamente eliminato il category');
+    }
+
+    public function storeCategory(Request $request){
+        Category::create([
+            'name' => strtolower($request->name),        
+        ]);
+        return redirect(route('admin.dashboard'))->with('message', 'hai correttamente inserito una nuova categoria');
+
+    }
+
+
 }

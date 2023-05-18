@@ -76,7 +76,7 @@
 
             <div class="search-container">
 
-                <form action="{{ route('article.search') }}" method="GET" class="d-flex ">
+                <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex ">
 
                     <div class="inputs">
                         <input type="search" name="query" aria-label="Search"  required>

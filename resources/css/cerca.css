@@ -64,3 +64,8 @@
 
 }
 
+@media screen and (max-width: 1300px) {
+    .boxSearchForm {
+      width: 400px;
+    }
+  }

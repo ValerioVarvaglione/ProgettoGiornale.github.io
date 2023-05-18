@@ -53,7 +53,9 @@ background-color: rgba(128, 128, 128, 0.563);
 .custom-footer {
 background-color:  rgba(128, 128, 128, 0.563);
 
+
 }
+
 
 .button-logout{
 border: none;
@@ -87,6 +89,12 @@ border-bottom: 2px outset white;
   }
 }
 
+
+@media screen and (max-width: 1300px) {
+  .custom-footer {
+    height: 115vh;
+  }
+}
 
 
 
