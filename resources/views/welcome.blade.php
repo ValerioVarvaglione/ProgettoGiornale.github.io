@@ -143,7 +143,7 @@
 
 
 
-        <div class="row mb-5 w-100 justify-content-around">
+        <div class="row mb-5 w-100 justify-content-around mx-auto">
             @foreach ($articles->where('category_id', 4)->take(5) as $article)
                 <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">
@@ -183,7 +183,7 @@
 
 
 
-        <div class="row mb-5 w-100 justify-content-around div-politica">
+        <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles->where('category_id', 1)->take(5) as $article)
                 <div class="col-12 col-md-2 my-2 card2 ">
                     <div class="card customCard customCard1">

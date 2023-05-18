@@ -48,12 +48,12 @@
                     @endif
                     @if (Auth::user() && Auth::user()->is_revisor)
                         <li><a href="{{ route('revisor.dashboard') }}"
-                                class="borderLink text-white nav-link link-custom my-2">Dashboard del revisore</a>
+                                class="borderLink text-white nav-link link-custom my-2">Dashboard revisore</a>
                         </li>
                     @endif
                     @if (Auth::user() && Auth::user()->is_admin)
                         <li><a href="{{ route('admin.dashboard') }}"
-                                class="borderLink text-white nav-link link-custom my-2">Dashboard del amministratore</a>
+                                class="borderLink text-white nav-link link-custom my-2">Dashboard amministratore</a>
                         </li>
                     @endif
                     @if (Auth::user())
