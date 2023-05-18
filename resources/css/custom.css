@@ -30,6 +30,8 @@
   
 }
 
+
+
 .h1-accedi{
   font-size: 25px;
   font-size: bold;
@@ -37,7 +39,7 @@
   
 }
 .para-accedi{
-  font-size: 16px;
+  font-size: 20px;
   font-weight: lighter;
 
 }
@@ -87,18 +89,28 @@ a{
 .customCard1 {
  
   border: none;
-  
+  width: 200px;
 }
 
 .customImg{
-  width: 300px;
+  /* width: 300px;
   height: 150px;
   
-  padding-left: 0;
+  padding-left: 0; */
+  width: 280px;
+  height: 180px;
+  object-fit: cover;
+  padding-top: 0;
+
+
 }
 .customImg1{
-  width: 300px;
+  /* width: 300px;
   height: 150px;
+  padding-top: 0; */
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
   padding-top: 0;
   
 }
@@ -145,9 +157,9 @@ a{
   }
 }
 
-.cardCustom {
+/* .cardCustom {
   height: 270px;
-}
+} */
 
 .showImg {
   width: 50%;
@@ -485,7 +497,9 @@ a:hover {
   bottom: 6px;
 }
 
-
+.form-login{
+  width: 500px;
+}
 
 
 

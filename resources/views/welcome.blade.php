@@ -16,7 +16,6 @@
 
     {{-- Meteo --}}
 
-
     @if (session('message'))
         <div class="alert alert-dark alert-dismissible fade show" role="alert">
             {{ session('message') }}
@@ -88,7 +87,7 @@
                         @if ($loop->first)
                             @continue
                         @endif
-                        <div class="col-12 col-md-6 my-2 ">
+                        <div class="col-12 col-md-6 my-2 d-flex justify-content-center align-items-center flex-column">
                             @if ($article->category)
                                 <a href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
                                     class="small text-muted fst-italic text-capitalize">{{ $article->category->name }}</a>
@@ -145,7 +144,7 @@
 
         <div class="row mb-5 w-100 justify-content-around mx-auto">
             @foreach ($articles->where('category_id', 4)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
                     <div class="card customCard customCard1">
                         <img class="customImg1" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -185,7 +184,7 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles->where('category_id', 1)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -224,7 +223,7 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles->where('category_id', 6)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -264,7 +263,7 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles->where('category_id', 2)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -302,7 +301,7 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles->where('category_id', 3)->take(5) as $article)
-                <div class="col-12 col-md-2 mx-2 my-2 card2 ">
+                <div class="col-12 col-md-2 mx-2 my-2 card2 d-flex justify-content-center">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">
@@ -340,7 +339,7 @@
 
         <div class="row mb-5 w-100 justify-content-around">
             @foreach ($articles->where('category_id', 5)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 ">
+                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
                     <div class="card customCard customCard1">
                         <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
                         <div class="card-body">

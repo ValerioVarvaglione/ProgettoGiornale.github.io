@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-custom">
+<nav class="navbar navbar-expand-lg navbar-light bg-custom " id="navbarColor">
     <div class="d-flex align-items-center justify-content-between">
 
         <a class="navbar-brand p-2" href="#"><img src="/media/occhio.png" class="img-custom"></a>
