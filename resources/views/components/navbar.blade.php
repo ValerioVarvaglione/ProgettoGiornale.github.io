@@ -43,21 +43,9 @@
                     @if (Auth::user())
                         <li class="nav-item">
                             <a class="borderLink nav-link text-white" href="{{ route('article.create') }}">Inserisci
-                                articolo</a>
+                                articolo
+                            </a>
                         </li>
-                    @endif
-                    @if (Auth::user() && Auth::user()->is_revisor)
-                        <li><a href="{{ route('revisor.dashboard') }}"
-                                class="borderLink text-white nav-link link-custom my-2">Dashboard revisore</a>
-                        </li>
-                    @endif
-                    @if (Auth::user() && Auth::user()->is_admin)
-                        <li><a href="{{ route('admin.dashboard') }}"
-                                class="borderLink text-white nav-link link-custom my-2">Dashboard amministratore</a>
-                        </li>
-                    @endif
-                    @if (Auth::user() && Auth::user()->is_writer)
-                        <li><a href="{{ route('writer.dashboard') }}" class="borderLink text-white nav-link link-custom my-2">Dashboard del redattore</a></li>
                     @endif
                     @if (Auth::user())
                         <li class="nav-item dropdown">
@@ -107,8 +95,7 @@
                     @endif
                     <li class="nav-item">
                         <a type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span
-                                class="text-white mx-1">Cerca</span></a>
+                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-1">Cerca</span></a>
 
                     </li>
                 </ul>

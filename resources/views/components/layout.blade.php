@@ -16,14 +16,7 @@
         rel="stylesheet">
 
 
-    {{-- Front End Card --}}
-    {{-- <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-
-        crossorigin="anonymous"> --}}
-
-
+  
 </head>
 
 <body>
@@ -45,7 +38,7 @@
         
         <div class="offcanvas-body mx-auto">
 
-            <div class="search-container">
+            <div class="search-container p-0 ">
 
                 <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex ">
 
@@ -72,32 +65,59 @@
         </div>
         <div class="offcanvas-body">
             <div>
-
+                <div class="container-fluid">
+                    <h6 class="mt-5 fw-bold">CATEGORIE:</h6>
+                </div>
+                    
+                
                 <div class="navbar-nav mx-auto p-3 ">
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-dark"
+                        <a class="nav-link text-dark"
                             href="{{ route('article.byCategory', ['category' => 'sport']) }}">SPORT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-dark"
+                        <a class="nav-link text-dark"
                             href="{{ route('article.byCategory', ['category' => 'Politica']) }}">POLITICA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-dark"
+                        <a class="nav-link text-dark"
                             href="{{ route('article.byCategory', ['category' => 'Tech']) }}">TECH</a>
                     </li>
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-dark"
+                        <a class="nav-link text-dark"
                             href="{{ route('article.byCategory', ['category' => 'Economia']) }}">ECONOMIA</a>
                     </li>
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-dark"
+                        <a class="nav-link text-dark"
                             href="{{ route('article.byCategory', ['category' => 'Food&Drink']) }}">FOOD AND DRINK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-dark"
+                        <a class="nav-link text-dark"
                             href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
+
+                    <div>
+                        <h6 class="mt-5 fw-bold">DASHBOARD:</h6>
+                    </div>
+
+                    @if (Auth::user() && Auth::user()->is_writer)
+                    <li><a href="{{ route('admin.dashboard') }}"
+                        class="text-black nav-link my-2">DASHBOARD AMMINISTRATORE</a>
+                </li>
+                    <li><a href="{{ route('writer.dashboard') }}"
+                            class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
+                    </li>
+                    @endif
+                    @if (Auth::user() && Auth::user()->is_revisor)
+                        <li><a href="{{ route('revisor.dashboard') }}"
+                                class="text-black nav-link my-2">DASHBOARD REVISORE</a>
+                        </li>
+                    @endif
+                    @if (Auth::user() && Auth::user()->is_admin)
+                        <li><a href="{{ route('admin.dashboard') }}"
+                                class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
+                        </li>
+                    @endif
                 </div>
             </div>
         </div>

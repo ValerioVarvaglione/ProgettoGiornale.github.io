@@ -73,6 +73,7 @@
                         <p class="small fst-italic text-capitalize ">
                             #{{ $articles->first()->tags->last()->name }}
                         </p>
+                        
                     </div>
                 @else
                     <h2>Non ci sono nuovi articoli!</h2>
@@ -114,6 +115,7 @@
                                                     #{{ $tag->name }}
                                                 @endforeach
                                             </p>
+                                            
                                         </div>
                                        
                                   
@@ -148,8 +150,13 @@
                     
                     <div class="card-article1">
                     @if ($article->category)
-                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
-                        class="">{{ $article->category->name }}</a>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted small fst-italic">tempo di lettura {{$article->readDuration()}} min</span>
+                        <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                            class="">{{ $article->category->name }}</a>
+                    </div>
+                    
+                        
                     @else
                     <p class="small text-muted fst-italic text-capitalize">
                         Non categorizzato
@@ -170,6 +177,7 @@
                                         #{{ $tag->name }}
                                     @endforeach
                                 </p>
+                                
                             </div>
                         </div>
                     </div>

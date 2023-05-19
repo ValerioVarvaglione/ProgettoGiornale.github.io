@@ -450,9 +450,7 @@ a:hover {
 
 .card-image {
   
-  width: 100%;
-  height: 40%;
-  border-radius: 6px 6px 0 0;
+
   object-fit: cover;
 }
 
@@ -460,9 +458,6 @@ a:hover {
   height: 100%;
 }
 
-.card-image:hover {
-  transform: scale(0.98);
-}
 
 .category {
   text-transform: uppercase;
@@ -525,11 +520,14 @@ a:hover {
 
 
 
+
+
 .card-article{
   max-width: 300px;
   border-radius: 5px;
   background-color: #eee8e83b;
   box-shadow: 0 1px 2px 0 rgba(145, 139, 139, 0.663);
+  
   
 }
 
@@ -542,6 +540,7 @@ a:hover {
   width: 100%;
   height: 150px;
   object-fit: cover;
+  
 }
 
 .title {
