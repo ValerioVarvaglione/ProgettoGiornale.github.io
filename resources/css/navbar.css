@@ -90,7 +90,7 @@ border-bottom: 2px outset white;
 }
 
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 900px) {
   .custom-footer {
     height: 115vh;
   }

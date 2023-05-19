@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\WriterController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
 
@@ -22,7 +23,6 @@ Route::get('/article/create', [ArticleController::class, 'create'])->name('artic
 Route::post('/article/store', [ArticleController::class, 'store'])->name('article.store');
 Route::get('/article/index', [ArticleController::class, 'index'])->name('article.index');
 Route::get('/article/show/{article}', [ArticleController::class, 'show'])->name('article.show');
-// Route::get('/article/category/{category}', [ArticleController::class, 'category'])->name('article.category');
 Route::get('/article/category/{category}', [ArticleController::class, 'byCategory'])->name('article.byCategory');
 Route::get('/article/user/{user}', [ArticleController::class, 'byUser'])->name('article.user');
 Route::get('/careers', [PublicController::class, 'careers'])->name('careers');
@@ -64,4 +64,18 @@ Route::middleware('admin')->group(function() {
 });
 Route::middleware('admin')->group(function() {
     Route::post('/admin/category/store', [AdminController::class, 'storeCategory'])->name('admin.storeCategory');
+});
+Route::middleware('writer')->group(function() {
+    Route::get('/writer/dashboard/', [WriterController::class, 'dashboard'])->name('writer.dashboard');
+});
+Route::middleware('writer')->group(function() {
+    Route::get('/article/{article}/edit', [ArticleController::class, 'edit'])->name('article.edit');
+});
+
+Route::middleware('writer')->group(function() {
+    Route::put('/article/{article}/update', [ArticleController::class, 'update'])->name('article.update');
+});
+
+Route::middleware('writer')->group(function() {
+    Route::delete('/article/{article}/destroy', [ArticleController::class, 'destroy'])->name('article.destroy');
 });

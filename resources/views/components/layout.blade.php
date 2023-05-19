@@ -30,35 +30,6 @@
 
 
     <x-navbar />
-    <div class="px-3" id="clock"></div>
-
-    {{-- <script>
-        function updateClock() {
-            var now = new Date();
-            var options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            };
-            var date = now.toLocaleDateString('it-IT', options);
-            var time = now.toLocaleTimeString('it-IT');
-
-            var day = date.split(' ')[0];
-            day = day.charAt(0).toUpperCase() + day.slice(1);
-
-            var dayNumber = date.split(' ')[1];
-            var year = date.split(' ')[2];
-
-            var dateTime = day + ' ' + dayNumber + ' ' + year + ', ' + time;
-
-            document.getElementById("clock").innerHTML = dateTime;
-
-            setTimeout(updateClock, 1000);
-        }
-
-        updateClock();
-    </script> --}}
 
 
 
@@ -102,26 +73,30 @@
         <div class="offcanvas-body">
             <div>
 
-                <div class="navbar-nav mx-auto p-3">
+                <div class="navbar-nav mx-auto p-3 ">
                     <li class="nav-item">
                         <a class="borderLink nav-link link-custom text-dark"
-                            href="{{ route('article.byCategory', ['category' => 'sport']) }}">Sport</a>
+                            href="{{ route('article.byCategory', ['category' => 'sport']) }}">SPORT</a>
                     </li>
                     <li class="nav-item">
                         <a class="borderLink nav-link link-custom text-dark"
-                            href="{{ route('article.byCategory', ['category' => 'Politica']) }}">Politica</a>
+                            href="{{ route('article.byCategory', ['category' => 'Politica']) }}">POLITICA</a>
                     </li>
                     <li class="nav-item">
                         <a class="borderLink nav-link link-custom text-dark"
-                            href="{{ route('article.byCategory', ['category' => 'Tech']) }}">Tech</a>
+                            href="{{ route('article.byCategory', ['category' => 'Tech']) }}">TECH</a>
                     </li>
                     <li class="nav-item">
                         <a class="borderLink nav-link link-custom text-dark"
-                            href="{{ route('article.byCategory', ['category' => 'Economia']) }}">Economia</a>
+                            href="{{ route('article.byCategory', ['category' => 'Economia']) }}">ECONOMIA</a>
                     </li>
                     <li class="nav-item">
                         <a class="borderLink nav-link link-custom text-dark"
-                            href="{{ route('article.byCategory', ['category' => 'Food&Drink']) }}">Food And Drink</a>
+                            href="{{ route('article.byCategory', ['category' => 'Food&Drink']) }}">FOOD AND DRINK</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="borderLink nav-link link-custom text-dark"
+                            href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
                 </div>
             </div>

@@ -68,9 +68,9 @@
                         </a>
                     </h1>
                     <div class="d-flex justify-content-between">
-                        <p class="small text-muted text-capitalize"><i class="fa-regular fa-user mx-2"></i>Autore:
-                            {{ $articles->first()->user->name }} </p>
-                        <p class="small fst-italic text-capitalize">
+                        <p class="small text-muted text-capitalize fst-italic"><i class="fa-regular fa-user mx-2"></i>Autore:
+                            {{ $articles->first()->user->name }} il {{ $articles->first()->created_at->format('d/m/Y') }}</p>
+                        <p class="small fst-italic text-capitalize ">
                             #{{ $articles->first()->tags->last()->name }}
                         </p>
                     </div>
@@ -87,37 +87,40 @@
                         @if ($loop->first)
                             @continue
                         @endif
-                        <div class="col-12 col-md-6 my-2 d-flex justify-content-center align-items-center flex-column">
-                            @if ($article->category)
-                                <a href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
-                                    class="small text-muted fst-italic text-capitalize">{{ $article->category->name }}</a>
-                            @else
-                                <p class="small text-muted fst-italic text-capitalize">
-                                    Non categorizzato
-                                </p>
-                            @endif
-                            <div class="card customCard">
-                                <img class="customImg mt-2 " src="{{ Storage::url($article->image) }}" alt="">
-                                <div class="card-body">
-                                    <h5 class="hover-underline-animation font-title">
-                                        <a href="{{ route('article.show', $article) }}">
-                                            {{ $article->title }}
-                                        </a>
-                                    </h5>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="small text-muted text-capitalize"><i
-                                                class="fa-regular fa-user mx-2"></i>Autore:
-                                            {{ $article->user->name }}</p>
-                                        <p class="small fst-italic text-capitalize">
-                                            @foreach ($article->tags as $tag)
-                                                #{{ $tag->name }}
-                                            @endforeach
+                        <div class="col-12 col-md-6 my-2 ">
+                            <div class="justify-content-center d-flex align-items-center flex-column">
+                                <div class="card customCard">
+                                        @if ($article->category)
+                                        <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                                            class="">{{ $article->category->name }}</a>
+                                        @else
+                                        <p class="small text-muted fst-italic text-capitalize">
+                                            Non categorizzato
                                         </p>
+                                        @endif
+                                    <img class="customImg mt-2 " src="{{ Storage::url($article->image) }}" alt="">
+                                    <div class="card-body">
+                                        <h5 class="hover-underline-animation font-title">
+                                            <a href="{{ route('article.show', $article) }}">
+                                                {{ $article->title }}
+                                            </a>
+                                        </h5>
+                                        <div class="d-flex justify-content-between">
+                                            <p class="small text-muted text-capitalize fst-italic"><i
+                                                    class="fa-regular fa-user mx-2 "></i>Autore:
+                                                {{ $article->user->name }} il {{ $articles->first()->created_at->format('d/m/Y') }}</p>
+                                            <p class="small fst-italic text-capitalize">
+                                                @foreach ($article->tags as $tag)
+                                                    #{{ $tag->name }}
+                                                @endforeach
+                                            </p>
+                                        </div>
+                                       
+                                  
                                     </div>
-                                   
-                              
                                 </div>
                             </div>
+                          
                         </div>
                     @endforeach
                 </div>
@@ -131,39 +134,47 @@
 
 
     <div class="container">
-        <div class="row">
+        <div class="row mx-auto">
             <div class="col-12">
                 <h2 class="my-5 fw-bold subTitle1 contenitore">Sport</h2>
             </div>
             
         </div>
-
-
-
-
-
-        <div class="row mb-5 w-100 justify-content-around mx-auto">
+        
+        <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 4)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
-                    <div class="card customCard customCard1">
-                        <img class="customImg1" src="{{ Storage::url($article->image) }}" alt="">
-                        <div class="card-body">
-                            <h6 class="hover-underline-animation title-section">
-                                <a href="{{ route('article.show', $article) }}">
-                                    {{ $article->title }}
-                                </a>
-                            </h6>
-                            <div>
-                                <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore:
-                                    {{ $articles->first()->user->name }}
+                
+                <div class="col-12 col-md-3 my-2 d-flex justify-content-center">
+                    
+                    <div class="card-article1">
+                    @if ($article->category)
+                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                        class="">{{ $article->category->name }}</a>
+                    @else
+                    <p class="small text-muted fst-italic text-capitalize">
+                        Non categorizzato
+                    </p>
+                    @endif
+                        <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
+                        <div class="content p-0">
+                            <a class="title-category" href="{{ route('article.show', $article) }}">{{ Str::limit($article->title,70) }}</a>
+                            <a href="{{ route('article.show', $article) }}">
+                                <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <p class="small text-muted text-capitalize fst-italic"><i
+                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                <p class="small fst-italic text-capitalize">
+                                    @foreach ($article->tags as $tag)
+                                        #{{ $tag->name }}
+                                    @endforeach
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             @endforeach
-
 
         </div>
 
@@ -182,21 +193,34 @@
 
 
 
-        <div class="row mb-5 w-100 justify-content-around">
+        <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 1)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
-                    <div class="card customCard customCard1">
-                        <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
-                        <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation title-section">
-                                <a href="{{ route('article.show', $article) }}">
-                                    {{ $article->title }}
-                                </a>
-                            </h6>
-                            <div>
-                                <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore:
-                                    {{ $articles->first()->user->name }}
+                
+                <div class="col-12 col-md-3 my-2 d-flex justify-content-center">
+                    
+                    <div class="card-article1">
+                    @if ($article->category)
+                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                        class="">{{ $article->category->name }}</a>
+                    @else
+                    <p class="small text-muted fst-italic text-capitalize">
+                        Non categorizzato
+                    </p>
+                    @endif
+                        <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
+                        <div class="content p-0">
+                            <a class="title-category" href="{{ route('article.show', $article) }}">{{ Str::limit($article->title,70) }}</a>
+                            <a href="{{ route('article.show', $article) }}">
+                                <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <p class="small text-muted text-capitalize fst-italic"><i
+                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                <p class="small fst-italic text-capitalize">
+                                    @foreach ($article->tags as $tag)
+                                        #{{ $tag->name }}
+                                    @endforeach
                                 </p>
                             </div>
                         </div>
@@ -205,8 +229,6 @@
             @endforeach
 
         </div>
-
-    </div>
 
 
 
@@ -221,21 +243,34 @@
 
 
 
-        <div class="row mb-5 w-100 justify-content-around">
+        <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 6)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
-                    <div class="card customCard customCard1">
-                        <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
-                        <div class="card-body">
-                            <h5 class="fw-bold hover-underline-animation title-section">
-                                <a href="{{ route('article.show', $article) }}">
-                                    {{ $article->title }}
-                                </a>
-                            </h5>
-                            <div>
-                                <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore:
-                                    {{ $articles->first()->user->name }}
+                
+                <div class="col-12 col-md-3 my-2 d-flex justify-content-center">
+                    
+                    <div class="card-article1">
+                    @if ($article->category)
+                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                        class="">{{ $article->category->name }}</a>
+                    @else
+                    <p class="small text-muted fst-italic text-capitalize">
+                        Non categorizzato
+                    </p>
+                    @endif
+                        <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
+                        <div class="content p-0">
+                            <a class="title-category" href="{{ route('article.show', $article) }}">{{ Str::limit($article->title,70) }}</a>
+                            <a href="{{ route('article.show', $article) }}">
+                                <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <p class="small text-muted text-capitalize fst-italic"><i
+                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                <p class="small fst-italic text-capitalize">
+                                    @foreach ($article->tags as $tag)
+                                        #{{ $tag->name }}
+                                    @endforeach
                                 </p>
                             </div>
                         </div>
@@ -244,9 +279,6 @@
             @endforeach
 
         </div>
-
-    </div>
-
 
     {{-- Sezione Economia --}}
 
@@ -261,21 +293,34 @@
 
 
 
-        <div class="row mb-5 w-100 justify-content-around">
+        <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 2)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
-                    <div class="card customCard customCard1">
-                        <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
-                        <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation title-section">
-                                <a href="{{ route('article.show', $article) }}">
-                                    {{ $article->title }}
-                                </a>
-                            </h6>
-                            <div>
-                                <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore:
-                                    {{ $articles->first()->user->name }}
+                
+                <div class="col-12 col-md-3 my-2 d-flex justify-content-center">
+                    
+                    <div class="card-article1">
+                    @if ($article->category)
+                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                        class="">{{ $article->category->name }}</a>
+                    @else
+                    <p class="small text-muted fst-italic text-capitalize">
+                        Non categorizzato
+                    </p>
+                    @endif
+                        <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
+                        <div class="content p-0">
+                            <a class="title-category" href="{{ route('article.show', $article) }}">{{ Str::limit($article->title,70) }}</a>
+                            <a href="{{ route('article.show', $article) }}">
+                                <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <p class="small text-muted text-capitalize fst-italic"><i
+                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                <p class="small fst-italic text-capitalize">
+                                    @foreach ($article->tags as $tag)
+                                        #{{ $tag->name }}
+                                    @endforeach
                                 </p>
                             </div>
                         </div>
@@ -337,21 +382,34 @@
 
 
 
-        <div class="row mb-5 w-100 justify-content-around">
+        <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 5)->take(5) as $article)
-                <div class="col-12 col-md-2 my-2 card2 d-flex justify-content-center">
-                    <div class="card customCard customCard1">
-                        <img class="customImg1 mt-2" src="{{ Storage::url($article->image) }}" alt="">
-                        <div class="card-body">
-                            <h6 class="fw-bold hover-underline-animation title-section">
-                                <a href="{{ route('article.show', $article) }}">
-                                    {{ $article->title }}
-                                </a>
-                            </h6>
-                            <div>
-                                <p class="small text-muted text-capitalize"><i
-                                        class="fa-regular fa-user mx-2"></i>Autore:
-                                    {{ $articles->first()->user->name }}
+                
+                <div class="col-12 col-md-3 my-2 d-flex justify-content-center">
+                    
+                    <div class="card-article1">
+                    @if ($article->category)
+                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                        class="">{{ $article->category->name }}</a>
+                    @else
+                    <p class="small text-muted fst-italic text-capitalize">
+                        Non categorizzato
+                    </p>
+                    @endif
+                        <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
+                        <div class="content p-0">
+                            <a class="title-category" href="{{ route('article.show', $article) }}">{{ Str::limit($article->title,70) }}</a>
+                            <a href="{{ route('article.show', $article) }}">
+                                <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
+                            </a>
+                            <div class="d-flex justify-content-between">
+                                <p class="small text-muted text-capitalize fst-italic"><i
+                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                <p class="small fst-italic text-capitalize">
+                                    @foreach ($article->tags as $tag)
+                                        #{{ $tag->name }}
+                                    @endforeach
                                 </p>
                             </div>
                         </div>
@@ -360,25 +418,25 @@
             @endforeach
 
         </div>
-
         {{-- Sezione LiveNews --}}
 
     <div class="container">
         <div class="row">
-            <h2 class="my-5 fw-bold subTitle contenitore6">LIVE:NEWS<div class="blink_text"></div>
-            </h2>
-            <div class="col-12 col-md-6">
+            <h2 class="my-5 fw-bold subTitle contenitore6">LIVE:NEWS</h2>
+            <div class="col-12 col-md-6 justify-content-center d-flex">
 
                 <iframe class="boxFrame" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen>
+                </iframe>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 justify-content-center d-flex">
                 <iframe class="mb-5 boxFrame" src="https://www.youtube.com/embed/nTWOaWXmo0Y?controls=0"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 

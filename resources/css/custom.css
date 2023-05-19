@@ -9,7 +9,6 @@
 
 
 
-
 @media only screen and (min-width: 1300px) {
   .navbar {
     flex-direction: column;
@@ -213,6 +212,11 @@ p{
   text-align: left;
   
   
+}
+
+.title-category{
+  font-size: 17px;
+  font-weight: bold;
 }
 
 
@@ -421,6 +425,10 @@ a:hover {
   }
 }
 
+
+
+
+
 .card1 {
   width: 280px;
   height: 400px;
@@ -429,11 +437,23 @@ a:hover {
   border-radius: 6px;
 }
 
+ .span-tags{
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: #d4d4d48f;
+  padding: 5px 5px;
+  margin-bottom: 10px;
+  font-size: 13px;
+
+  
+} 
+
 .card-image {
-  background-color: rgb(236, 236, 236);
+  
   width: 100%;
   height: 40%;
   border-radius: 6px 6px 0 0;
+  object-fit: cover;
 }
 
 .indexCard {
@@ -482,8 +502,10 @@ a:hover {
 }
 
 .indexAuthor {
-  font-size: 15px;
+  font-size: 14px;
   color: black;
+  font-style: italic;
+  
 }
 
 .offcanvas-cerca{
@@ -499,6 +521,63 @@ a:hover {
 
 .form-login{
   width: 500px;
+}
+
+
+
+.card-article{
+  max-width: 300px;
+  border-radius: 5px;
+  background-color: #eee8e83b;
+  box-shadow: 0 1px 2px 0 rgba(145, 139, 139, 0.663);
+  
+}
+
+.content {
+  padding: 10px;
+}
+
+.image {
+  
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.title {
+  color: #111827;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+.desc {
+  
+  color: black;
+  font-size: 15px;
+  line-height: 1.25rem;
+  padding-top: 0;
+}
+
+.action {
+  display: inline-flex;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: #bcbbb0c5;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+.action span {
+  transition: .3s ease;
+}
+
+.action:hover span {
+  transform: translateX(4px);
 }
 
 
