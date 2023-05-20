@@ -16,7 +16,7 @@
         rel="stylesheet">
 
 
-  
+
 </head>
 
 <body>
@@ -28,14 +28,14 @@
 
     {{-- Offcanvans Cerca --}}
 
-         
-        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasTopLabel"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-       
-        
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTopLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+
         <div class="offcanvas-body mx-auto">
 
             <div class="search-container p-0 ">
@@ -43,11 +43,12 @@
                 <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex ">
 
                     <div class="inputs">
-                        <input type="search" name="query" aria-label="Search"  required>
+                        <input type="search" name="query" aria-label="Search" required>
                         <label class="fs-5">Cerca nel sito</label>
                     </div>
-            
-                    <button type="submit" class="btn-search "><i class="fa-solid fa-magnifying-glass icon-search "></i></button>
+
+                    <button type="submit" class="btn-search "><i
+                            class="fa-solid fa-magnifying-glass icon-search "></i></button>
                 </form>
             </div>
         </div>
@@ -68,8 +69,8 @@
                 <div class="container-fluid">
                     <h6 class="mt-5 fw-bold">CATEGORIE:</h6>
                 </div>
-                    
-                
+
+
                 <div class="navbar-nav mx-auto p-3 ">
                     <li class="nav-item">
                         <a class="nav-link text-dark"
@@ -92,8 +93,7 @@
                             href="{{ route('article.byCategory', ['category' => 'Food&Drink']) }}">FOOD AND DRINK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark"
-                            href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
+                        <a class="nav-link text-dark" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
                     <div>
@@ -101,33 +101,29 @@
                     </div>
 
                     @if (Auth::user() && Auth::user()->is_writer)
-                    <li><a href="{{ route('admin.dashboard') }}"
-                        class="text-black nav-link my-2">DASHBOARD AMMINISTRATORE</a>
-                </li>
-                    <li><a href="{{ route('writer.dashboard') }}"
-                            class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
-                    </li>
+                        <li><a href="{{ route('admin.dashboard') }}" class="text-black nav-link my-2">DASHBOARD
+                                AMMINISTRATORE</a>
+                        </li>
+                        <li><a href="{{ route('writer.dashboard') }}" class="text-black nav-link my-2">DASHBOARD
+                                REDATTORE</a>
+                        </li>
                     @endif
                     @if (Auth::user() && Auth::user()->is_revisor)
-                        <li><a href="{{ route('revisor.dashboard') }}"
-                                class="text-black nav-link my-2">DASHBOARD REVISORE</a>
+                        <li><a href="{{ route('revisor.dashboard') }}" class="text-black nav-link my-2">DASHBOARD
+                                REVISORE</a>
                         </li>
                     @endif
-                    @if (Auth::user() && Auth::user()->is_admin)
-                        <li><a href="{{ route('admin.dashboard') }}"
-                                class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
-                        </li>
-                    @endif
+
                 </div>
             </div>
         </div>
     </div>
 
 
-    
-    
-   
-    
+
+
+
+
 
 
 
