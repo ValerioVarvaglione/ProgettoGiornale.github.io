@@ -29,25 +29,35 @@
     {{-- Offcanvans Cerca --}}
 
          
-        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasTopLabel"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-       
-        
+    <style>
+        /* Nascondi il pulsante di cancellazione nel campo di input di ricerca */
+        .boxSearchForm input[type="search"]::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            appearance: none;
+            display: none;
+        }
+    
+        .boxSearchForm input[type="search"]::-ms-clear {
+            display: none;
+        }
+    </style>
+    
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasTopLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Chiudi"></button>
+        </div>
+    
         <div class="offcanvas-body mx-auto">
-
-            <div class="search-container p-0 ">
-
-                <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex ">
-
+            <div class="search-container p-0">
+                <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex">
                     <div class="inputs">
-                        <input type="search" name="query" aria-label="Search"  required>
+                        <input type="search" name="query" aria-label="Ricerca" required>
                         <label class="fs-5">Cerca nel sito</label>
                     </div>
-            
-                    <button type="submit" class="btn-search "><i class="fa-solid fa-magnifying-glass icon-search "></i></button>
+                    <button type="submit" class="btn-search">
+                        <i class="fa-solid fa-magnifying-glass icon-search"></i>
+                    </button>
                 </form>
             </div>
         </div>
@@ -63,7 +73,7 @@
             <h5 class="offcanvas-title" id="staticBackdropLabel">MENU</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body p-0">
             <div>
                 <div class="container-fluid">
                     <h6 class="mt-5 fw-bold">CATEGORIE:</h6>
@@ -96,25 +106,27 @@
                             href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
-                    <div>
-                        <h6 class="mt-5 fw-bold">DASHBOARD:</h6>
-                    </div>
+                    @if (Auth::user() && Auth::user()->is_writer || Auth::user() && Auth::user()->is_revisor || Auth::user() && Auth::user()->is_admin) 
+                        <div>
+                            <h6 class="mt-5 fw-bold">DASHBOARD:</h6>
+                        </div>
+                    @endif
 
-                    @if (Auth::user() && Auth::user()->is_writer)
+                    
+                    
+
+                    @if (Auth::user() && Auth::user()->is_admin)
                     <li><a href="{{ route('admin.dashboard') }}"
                         class="text-black nav-link my-2">DASHBOARD AMMINISTRATORE</a>
                 </li>
-                    <li><a href="{{ route('writer.dashboard') }}"
-                            class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
-                    </li>
                     @endif
                     @if (Auth::user() && Auth::user()->is_revisor)
                         <li><a href="{{ route('revisor.dashboard') }}"
                                 class="text-black nav-link my-2">DASHBOARD REVISORE</a>
                         </li>
                     @endif
-                    @if (Auth::user() && Auth::user()->is_admin)
-                        <li><a href="{{ route('admin.dashboard') }}"
+                    @if (Auth::user() && Auth::user()->is_writer)
+                        <li><a href="{{ route('writer.dashboard') }}"
                                 class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
                         </li>
                     @endif

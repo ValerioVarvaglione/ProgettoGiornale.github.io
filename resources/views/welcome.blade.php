@@ -9,7 +9,7 @@
        <marquee behavior="scroll" direction="left">
           <span id="news"></span>
         </marquee>
-      </div>
+    </div>
     
     
 
@@ -198,7 +198,7 @@
                 <h2 class="my-5 fw-bold subTitle1 contenitore1">Politica</h2>
             </div>
         </div>
-
+    </div>    
 
 
         <div class="row mb-5  justify-content-around">
@@ -248,7 +248,7 @@
                 <h2 class="my-5 fw-bold subTitle1 contenitore2">Tech</h2>
             </div>
         </div>
-
+    </div>
 
 
         <div class="row mb-5  justify-content-around">
@@ -298,7 +298,7 @@
             </div>
             
         </div>
-
+    </div>    
 
 
         <div class="row mb-5  justify-content-around">
@@ -349,7 +349,7 @@
             </div>
           
         </div>
-
+    </div>
 
 
         <div class="row mb-5 w-100 justify-content-around">
@@ -387,6 +387,7 @@
                 <h2 class="my-5 fw-bold subTitle1 contenitore5">Intrattenimento</h2>
             </div>
         </div>
+    </div>
 
 
 
@@ -451,7 +452,7 @@
     </div>
 
 
-    </div>
+    
 
 
 </x-layout>

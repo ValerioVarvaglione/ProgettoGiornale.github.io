@@ -5,7 +5,6 @@
   color: #000000;
   font-size: 18px;
   font-weight: normal;
-  text-transform: uppercase;
 
 }
 .navbar .navbar-nav .nav-link:hover{
@@ -69,13 +68,9 @@ background: none;
 }
 }
 
-/* .borderLink:hover {
-border-bottom: 2px outset rgb(16, 7, 7);
-}
 
-.borderLink:focus {
-border-bottom: 2px outset white;
-} */
+
+
 
 @media screen and (max-width: 700px) {
 .customDropdown {
