@@ -24,7 +24,7 @@
         rel="stylesheet">
 
 
-  
+
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                 <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex ">
 
                     <div class="inputs">
-                        <input type="search" name="query" aria-label="Search"  required>
+                        <input type="search" name="query" aria-label="Search" required>
                         <label class="fs-5">Cerca nel sito</label>
                         <button type="submit" class="btn-search "><i class="fa-solid fa-magnifying-glass icon-search "></i></button>
                     </div>
@@ -102,8 +102,7 @@
                             href="{{ route('article.byCategory', ['category' => 'Food&Drink']) }}">FOOD AND DRINK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark"
-                            href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
+                        <a class="nav-link text-dark" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
                   @if (Auth::user() && Auth::user()->is_writer || Auth::user() && Auth::user()->is_revisor || Auth::user() && Auth::user()->is_admin)
@@ -138,10 +137,10 @@
     </div>
 
 
-    
-    
-   
-    
+
+
+
+
 
 
 
