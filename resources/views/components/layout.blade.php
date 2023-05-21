@@ -5,6 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Occhio del Reporter' }}</title>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      </head>
+      
 
     @vite (['resources/css/app.css', 'resources/js/app.js'])
 
@@ -25,8 +33,9 @@
     <x-navbar />
 
 
-
+    
     {{-- Offcanvans Cerca --}}
+
 
          
         <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
@@ -38,16 +47,17 @@
         
         <div class="offcanvas-body mx-auto">
 
-            <div class="search-container p-0 ">
+            <div class="search-container ">
 
                 <form class="boxSearchForm" action="{{ route('article.search') }}" method="GET" class="d-flex ">
 
                     <div class="inputs">
                         <input type="search" name="query" aria-label="Search"  required>
                         <label class="fs-5">Cerca nel sito</label>
+                        <button type="submit" class="btn-search "><i class="fa-solid fa-magnifying-glass icon-search "></i></button>
                     </div>
             
-                    <button type="submit" class="btn-search "><i class="fa-solid fa-magnifying-glass icon-search "></i></button>
+                    
                 </form>
             </div>
         </div>
@@ -57,20 +67,20 @@
 
     {{-- Offcanvans MENU --}}
 
-    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+    <div class="offcanvas offcanvas-start p-4" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
         aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="staticBackdropLabel">MENU</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body p-0">
             <div>
                 <div class="container-fluid">
-                    <h6 class="mt-5 fw-bold">CATEGORIE:</h6>
+                    <h6 class="mt-5 fw-bold category-size">CATEGORIE:</h6>
                 </div>
                     
                 
-                <div class="navbar-nav mx-auto p-3 ">
+                <div class="navbar-nav mx-auto p-3 nav-nav">
                     <li class="nav-item">
                         <a class="nav-link text-dark"
                             href="{{ route('article.byCategory', ['category' => 'sport']) }}">SPORT</a>
@@ -96,28 +106,32 @@
                             href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
+                  @if (Auth::user() && Auth::user()->is_writer || Auth::user() && Auth::user()->is_revisor || Auth::user() && Auth::user()->is_admin)
                     <div>
-                        <h6 class="mt-5 fw-bold">DASHBOARD:</h6>
+                        <h6 class="mt-5 fw-bold my-4 category-size">DASHBOARD:</h6>
                     </div>
+                  @endif
+
+                    @if (Auth::user() && Auth::user()->is_admin)
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}"
+                        class="text-black nav-link my-1">DASHBOARD AMMINISTRATORE</a>
+                    </li>
+                    @endif
 
                     @if (Auth::user() && Auth::user()->is_writer)
-                    <li><a href="{{ route('admin.dashboard') }}"
-                        class="text-black nav-link my-2">DASHBOARD AMMINISTRATORE</a>
-                </li>
-                    <li><a href="{{ route('writer.dashboard') }}"
-                            class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
+                    <li>
+                        <a href="{{ route('writer.dashboard') }}"
+                            class="text-black nav-link my-1">DASHBOARD REDATTORE</a>
                     </li>
                     @endif
                     @if (Auth::user() && Auth::user()->is_revisor)
-                        <li><a href="{{ route('revisor.dashboard') }}"
-                                class="text-black nav-link my-2">DASHBOARD REVISORE</a>
+                        <li>
+                            <a href="{{ route('revisor.dashboard') }}"
+                                class="text-black nav-link my-1">DASHBOARD REVISORE</a>
                         </li>
                     @endif
-                    @if (Auth::user() && Auth::user()->is_admin)
-                        <li><a href="{{ route('admin.dashboard') }}"
-                                class="text-black nav-link my-2">DASHBOARD REDATTORE</a>
-                        </li>
-                    @endif
+              
                 </div>
             </div>
         </div>
@@ -136,7 +150,7 @@
 
 
 
-    {{ $slot }}
+        {{ $slot }}
 
 
 
@@ -147,7 +161,7 @@
 
 
     <x-footer />
-
+    
 </body>
 
 </html>

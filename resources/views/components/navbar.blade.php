@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-custom " id="navbarColor">
+<nav id="navbarColor" class="navbar navbar-expand-lg navbar-light bg-custom " id="navbar">
     <div class="d-flex align-items-center justify-content-between">
 
         <a class="navbar-brand p-2" href="#"><img src="/media/occhio.png" class="img-custom"></a>
@@ -60,12 +60,12 @@
                                                 class="fa-solid fa-envelope mx-1"></i> Lavora con noi</a></button>
                                 </li>
                                 <li class="nav-item">
-                                    <form class="d-flex justify-content-center" action="{{ route('logout') }}"
+                                    <form class="d-flex mx-3" action="{{ route('logout') }}"
                                         method="post">
                                         @csrf
                                         <button class="button-logout" type="submit"><i
-                                                class="fa-solid fa-arrow-right-from-bracket text-black mx-1"></i>
-                                            Logout</button>
+                                                class="fa-solid fa-arrow-right-from-bracket text-black "></i>
+                                            LOGOUT</button>
                                     </form>
                                 </li>
                             </ul>
@@ -105,3 +105,6 @@
 
     
 </nav>
+
+
+

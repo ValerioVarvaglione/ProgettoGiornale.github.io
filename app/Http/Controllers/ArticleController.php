@@ -99,19 +99,22 @@ class ArticleController extends Controller
         'tags' => 'required',
 
       ]);
+
+      $imgArticle = $article->image;
+      
       $article->update([
         'title' => $request->title,
         'subtitle' => $request->subtitle,
+        'image' => ($request->file('image') == null) ? $article->image : $request->file('image')->store('public/images'),
         'body' => $request->body,
         'category_id' => $request->category,
         'slug' => Str::slug($request->title),
       ]);
 
-      if ($request->image){
-        Storage::delete($article->image);
-        $article->update([
-            'image' => $request->file('image')->store('public/images'),
-        ]);
+      if ($request->file('image') !== null) {
+        
+        Storage::delete($imgArticle);
+    
       }
 
       $tags = explode(', ', $request->tags);
@@ -126,7 +129,7 @@ class ArticleController extends Controller
 
       $article->tags()->sync($newTags);
 
-      return redirect(route('writer.dashboard'))->with('message', 'Hai correttamente aggiornato l\ articolo scelto');
+      return redirect(route('writer.dashboard'))->with('message', 'Hai correttamente aggiornato l articolo scelto');
 
     }
 
@@ -138,6 +141,7 @@ class ArticleController extends Controller
             foreach($article->tags as $tag){
                 $article->tags()->detach($tag);
             }
+            
 
             $article->delete();
 

@@ -1,23 +1,25 @@
 <x-layout>
 
-    <div class="container-fluid p-5 text-center text-dark">
+    <div class="container-fluid p-3  text-dark">
         <div class= "row justify-content-center">
-            <h1 class="fs-3">
-                {{$article->title}}
-            </h1>
+           
         </div>
     </div>
 
 
     <div class="container">
         <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <img src="{{ Storage::url($article->image) }}" class="img-fluid my-3 showImg" alt="">
-            </div>
-            <div class="col-12">
-                <h4 class=" my-3 fs-4">{{ $article->subtitle }}</h4>
-            </div>
-            <div class="col-12">
+            
+            
+          
+            <div class="col-12 mb-5">
+                <h1 class="display-3 text-center fw-bold">
+                    {{$article->title}}
+                </h1>
+                <h4 class=" my-3 px-0 fs-4 p-3">{{ $article->subtitle }}</h4>
+                <div class="d-flex justify-content-center">
+                    <img src="{{ Storage::url($article->image) }}" class=" my-2 img-show " alt="">
+                </div>
                 <p class="fs-5">{{$article->body}}</p>
             </div>
             <div class="col-12 d-flex justify-content-between">

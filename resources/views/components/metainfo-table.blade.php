@@ -5,7 +5,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Nome tag</th>
                 <th scope="col">Quantità articoli collegati</th>
-                <th scope="col">Aggiorna</th>
+                <th class="" scope="col">Aggiorna</th>
                 <th scope="col">Cancella</th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                                 @csrf
                                 @method('put')
                                 <input type="text" name="name" placeholder="Nuovo nome"
-                                    class="form-control w-50 d-inline">
+                                    class="form-control w-50 d-inline ">
                                 <button class="btn btn-info text-black" type="submit">Aggiorna</button>
                             </form>
                         </td>

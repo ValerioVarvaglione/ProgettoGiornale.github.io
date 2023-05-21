@@ -20,6 +20,58 @@
       
           // Avvia la visualizzazione delle news
           showNews();
+
+
+          window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('navbarColor');
+            var links = navbar.getElementsByClassName('nav-link');
+            
+            // Aggiungi la classe active al link corrente durante lo scroll
+            for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              var sectionId = link.getAttribute('href').slice(1);
+              var section = document.getElementById(sectionId);
+              
+              if (section && isElementInViewport(section)) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            }
+          });
+          
+          // Funzione per verificare se un elemento è visibile nella viewport
+          function isElementInViewport(element) {
+            var rect = element.getBoundingClientRect();
+            return (
+              rect.top >= 0 &&
+              rect.left >= 0 &&
+              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+          }
+
+
+          window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('navbar');
+            var logo = document.querySelector('.navbar-brand');
+            var content = document.querySelector('.content');
+          
+            if (window.pageYOffset > 50) {
+              logo.classList.add('visible');
+              navbar.classList.add('navbar-scroll');
+              content.style.marginTop = navbar.offsetHeight + 'px';
+            } else {
+              logo.classList.remove('visible');
+              navbar.classList.remove('navbar-scroll');
+              content.style.marginTop = '0';
+            }
+          });
+
+
+    
+         
+
        
   
   
