@@ -615,7 +615,7 @@ ul{
 .footer-col ul li:not(:last-child){
 	margin-bottom: 10px;
 }
-.footer-col ul li a{
+.footer-col li a{
 	font-size: 16px;
 	text-transform: capitalize;
 	color: #ffffff;
@@ -625,7 +625,7 @@ ul{
 	display: block;
 	transition: all 0.3s ease;
 }
-.footer-col ul li a:hover{
+.footer-col ul  a:hover{
 	color: #ffffff;
 	padding-left: 8px;
 }

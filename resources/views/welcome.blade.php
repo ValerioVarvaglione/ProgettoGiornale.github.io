@@ -62,7 +62,7 @@
                     <a id="category" href="{{ route('article.byCategory', ['category' => $articles->first()->category->name]) }}"
                         class="small text-muted fst-italic text-capitalize">{{ $articles->first()->category->name }}</a>
                     <img class="thumb" src="{{ count($articles) > 0 ? Storage::url($articles->first()->image) : '' }}">
-                    <h1 class="hover-underline-animation">
+                    <h1 class="hover-underline-animation fs-5">
                         <a class="" href="{{ route('article.show', $articles->first()) }}">
                             {{ $articles->first()->title }}
                         </a>
@@ -175,7 +175,8 @@
                                 <p class="small text-muted text-capitalize fst-italic"><i
                                     class="fa-regular fa-user small">
                                     </i>
-                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}
+                                </p>
                                 </div>
                             <p class="small fst-italic text-capitalize">
                                 @foreach ($article->tags as $tag)
@@ -227,7 +228,8 @@
                             <div class="d-flex justify-content-between">
                                 <p class="small text-muted text-capitalize fst-italic"><i
                                         class="fa-regular fa-user mx-2 "></i>Autore:
-                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}
+                                </p>
                                 <p class="small fst-italic text-capitalize">
                                     @foreach ($article->tags as $tag)
                                         #{{ $tag->name }}
