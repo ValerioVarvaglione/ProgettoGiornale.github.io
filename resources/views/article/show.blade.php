@@ -35,10 +35,12 @@
         </div>
     </div>
     <div class="text-center">
-        <a href="{{route('article.index')}}" class="btn btn-dark text-white my-3">Torna Alla Home</a>
+        <a  href="{{ route('home') }}"><button class="my-4 mx-2 btn btn-my2">Torna alla home</button></a>
         @if (Auth::user() && Auth::user()->is_revisor)
-        <a href="{{ route('revisor.acceptArticle', compact('article'))}}" class="btn btn-success text-white my-3 mx-2">Accetta articolo</a>
-        <a href="{{ route('revisor.rejectArticle', compact('article'))}}" class="btn btn-danger text-white my-3">Rifiuta articolo</a>
+        <button class="my-4 mx-2 btn btn-my text-white"> <a class="text-decoration-none text-white" href="{{ route('revisor.acceptArticle', compact('article'))}}" class=" text-white my-3 mx-2">Accetta articolo</a></button>
+        <button class="my-4 mx-2 btn btn-my3 text-white"><a class="text-decoration-none text-white" href="{{ route('revisor.rejectArticle', compact('article'))}}" class="text-white my-3">Rifiuta articolo</a></button>
+       
+      
     @endif
     </div>
 

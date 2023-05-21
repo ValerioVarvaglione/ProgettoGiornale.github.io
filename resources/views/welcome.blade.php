@@ -3,13 +3,13 @@
 
     <div class="news-bar">
         <div>
-            <span class="live-news">LIVE NEWS</span>
+            <span class="live-news text-dark fw-bold">LIVE NEWS</span>
         </div>
         <span class="dot"></span>
        <marquee behavior="scroll" direction="left">
-          <span id="news"></span>
+          <span id="news" class="text-dark wordNews"></span>
         </marquee>
-      </div>
+    </div>
     
     
 
@@ -202,7 +202,7 @@
                 <h2 class="my-5 fw-bold subTitle1 contenitore1">Politica</h2>
             </div>
         </div>
-
+    </div>    
 
 
         <div class="row mb-5  justify-content-around">
@@ -440,20 +440,32 @@
 
     {{-- Sezione LiveNews --}}
 
-    <div class="container">
+    <div class="container box-swiper">
         <div class="row">
             <h2 class="my-5 fw-bold subTitle ">LIVE:NEWS</h2>
+        <div class="col-12 p-0">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/9Auq9mYxFEE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/pUcmpyynASM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/21X5lGlDOfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/XmkHyAejK4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/URQtYtS7qrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                </div>
+                <div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    
+                </div>
+                
+              </div>
             
+        </div>
         </div>
     </div>
 
-    <div class="container my-5">
-        
-        
-             
-        
-        
-    </div>
+    
 
 
       

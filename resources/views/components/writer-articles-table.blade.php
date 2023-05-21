@@ -24,7 +24,7 @@
                         @endforeach
                     </td>
                     <td>{{$article->created_at->format('d/m/Y')}}</td>
-                    <td>
+                    <td class="d-flex flex-column align-items-center">
                         <a href="{{route('article.show', compact('article'))}}" class="btn btn-info text-white mx-3"><i class="fa-solid fa-eye"></i></a>
                         <a href="{{route('article.edit', compact('article'))}}" class="btn btn-success text-white my-1 mx-3"><i class="fa-solid fa-pen"></i></a>
                         <form action="{{route('article.destroy', compact('article'))}}" method="post" 

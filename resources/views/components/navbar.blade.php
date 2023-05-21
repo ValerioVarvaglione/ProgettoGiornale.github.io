@@ -23,17 +23,16 @@
                     <li class="nav-item">
                         <a type="button" class="nav-link " data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
                             aria-controls="staticBackdrop">
-                            <i class="fa-solid fa-bars text-white"></i> <span class="text-white mx-1">Menu</span>
+                            <i class="fa-solid fa-bars text-white"></i> <span class="text-white fw-bold mx-2">MENU</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-white" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('home') }}">HOME</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="borderLink nav-link link-custom text-white" href="{{ route('article.index') }}">Tutti
-                            gli articoli</a>
+                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
 
@@ -42,21 +41,20 @@
 
                     @if (Auth::user())
                         <li class="nav-item">
-                            <a class="borderLink nav-link text-white" href="{{ route('article.create') }}">Inserisci
-                                articolo
+                            <a class="nav-link text-white fw-bold" href="{{ route('article.create') }}">INSERISCI ARTICOLO
                             </a>
                         </li>
                     @endif
                     @if (Auth::user())
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Benvenuto {{ Auth::user()->name }}
+                                    BENVENUTO {{strtoupper(Auth::user()->name) }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
                                     <button class="button-logout" type="submit"><a
-                                            class="borderLink nav-link text-black" href="{{ route('careers') }}"><i
+                                            class="text-black" href="{{ route('careers') }}"><i
                                                 class="fa-solid fa-envelope mx-1"></i> Lavora con noi</a></button>
                                 </li>
                                 <li class="nav-item">
@@ -95,7 +93,7 @@
                     @endif
                     <li class="nav-item">
                         <a type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-1">Cerca</span></a>
+                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-2 fw-bold">CERCA</span></a>
 
                     </li>
                 </ul>
