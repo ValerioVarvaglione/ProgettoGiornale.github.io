@@ -42,10 +42,7 @@
   font-weight: lighter;
 
 }
-.footer{
-  padding: 0 0;
-  height: 300px;
-}
+
 /* 
 .subTitle{
   margin-bottom: 10px
@@ -62,13 +59,21 @@ a{
 
 .thumb{
   width: 100%;
-  height: 439px
+  object-fit: cover;
  
 }
 
 @media screen and (max-width: 1300px) {
   .thumb {
-    height: 200px;
+    height: 500px;
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .thumb {
+    height: 180px;
+
   }
 }
 
@@ -78,6 +83,24 @@ a{
     justify-content: center;
     align-items: center;
   }
+}
+
+@media screen and (max-width: 800px) {
+  .thumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.nav-nav{
+  font-size: 20px;
+  color: #020202;
+  
+}
+
+.category-size{
+  font-size: 22px;
 }
 
 .customCard {
@@ -193,12 +216,12 @@ p{
 }
 
 
-.hover-underline-animation {
+/* .hover-underline-animation {
   display: inline-block;
   position: relative;
   color: #000000;
   font-size: 25px;
-}
+} */
 
 .font-title{
   font-size: 18px;
@@ -220,18 +243,7 @@ p{
 }
 
 
-.hover-underline-animation::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000000;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
+
 
 .hover-underline-animation:hover::after {
   transform: scaleX(1);
@@ -300,7 +312,7 @@ a:hover {
   position: relative;
  
 }
-/* .contenitore6::before{
+ .contenitore6::before{
   content: "";
   position: absolute;
   z-index: -1;
@@ -311,7 +323,7 @@ a:hover {
   animation: 1s blinker linear infinite;
   bottom: 20px;
  right: 1200px;
-} */
+} 
 
 .contenitore2::before{
   content: "";
@@ -367,31 +379,8 @@ a:hover {
 
 
 
-/* .blink_text {
-  content: "";
-    position: absolute;
-   
-    z-index: -1;
-    width: 15px;
-    height: 15px;
-    background: red;
-    border-radius: 50%;
-    animation: 1s blinker linear infinite;
-} */
 
-@keyframes blinker {
-    0% {
-        opacity: 1.0;
-    }
 
-    50% {
-        opacity: 0.0;
-    }
-
-    100% {
-        opacity: 1.0;
-    }
-}
 
 .form-custom {
   width: 600px;
@@ -556,6 +545,7 @@ a:hover {
   font-size: 15px;
   line-height: 1.25rem;
   padding-top: 0;
+  
 }
 
 .action {
@@ -578,6 +568,196 @@ a:hover {
 .action:hover span {
   transform: translateX(4px);
 }
+
+
+/* footer */
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #2f2f2f;
+    padding: 70px 0;
+  
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+.btn-my{
+
+  display: inline-block;
+  outline: 0;
+  appearance: none;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgb(9, 128, 76);
+  box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
+ 
+
+}
+
+.btn-my:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(17, 97, 73);
+  box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px, rgb(195 231 202) 0px 0px 0px 3px;
+}
+
+.btn-my2{
+  display: inline-block;
+  outline: 0;
+  appearance: none;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgb(82, 210, 212);
+  box-shadow: rgba(19, 163, 170, 0.4) 0px 2px 3px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
+}
+
+.btn-my3{
+
+  display: inline-block;
+  outline: 0;
+  appearance: none;
+  padding: 0px 12px;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: rgb(197, 26, 26);
+  box-shadow: rgb(19 170 82 / 40%) 0px 2px 3px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 400;
+  height: 36px;
+  transition: all 150ms ease-in-out 0s;
+ 
+
+}
+
+.btn-my2:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(82, 210, 212);
+  box-shadow: rgba(80, 208, 223, 0.4) 0px 2px 3px, rgb(189, 221, 236) 0px 0px 0px 3px;
+}
+
+.btn-my3:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(197, 26, 26);
+  box-shadow: rgba(223, 106, 80, 0.4) 0px 2px 3px, rgb(236, 190, 189) 0px 0px 0px 3px;
+}
+
+.img-show{
+ max-width: 100%;
+}
+
+.news-bar {
+  /* background-image: linear-gradient(to right top, #f5f5f5d2, #f7f7f7, #ffffffd2, #ffffffbd, #ffffff,  #d7d7d7b5); */
+  /* background-image: linear-gradient(to right top, rgba(255, 255, 255, 0.612), #d7d7d7, #dadada, #dedddd, #e2dfe0, #e6e2e2); */
+  
+background-image: linear-gradient(to right top, #ffffffee, #fdfdfdf3, #fbfbfb, #f9f9f9, #f7f7f7, #f6f6f6, #f6f6f6, #f5f5f5, #f6f6f6, #f7f7f7, #f8f8f8, #f9f9f9);
+
+border-bottom: 1px solid rgba(207, 188, 188, 0.447);
+}
+
+.wordNews {
+  font-weight: 500;
+}
+
+
+
+
+ 
 
 
 

@@ -3,20 +3,20 @@
 
     <div class="news-bar">
         <div>
-            <span class="live-news">LIVE NEWS</span>
+            <span class="live-news text-dark fw-bold">LIVE NEWS</span>
         </div>
         <span class="dot"></span>
        <marquee behavior="scroll" direction="left">
-          <span id="news"></span>
+          <span id="news" class="text-dark wordNews"></span>
         </marquee>
     </div>
     
     
 
 
-    {{-- Meteo --}}
+     {{-- Meteo --}}
 
-    @if (session('message'))
+     @if (session('message'))
         <div class="alert alert-dark alert-dismissible fade show" role="alert">
             {{ session('message') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -56,7 +56,7 @@
 
 
         <div class="row">
-            <div class="col-12 col-md-6 my-3 col-sm-12">
+            <div class="col-12 col-md-5 my-3 col-sm-12 mx-3">
 
                 @if (count($articles) > 0)
                     <a id="category" href="{{ route('article.byCategory', ['category' => $articles->first()->category->name]) }}"
@@ -99,8 +99,9 @@
                                             Non categorizzato
                                         </p>
                                         @endif
-                                    <img class="customImg mt-2 " src="{{ Storage::url($article->image) }}" alt="">
-                                    <div class="card-body">
+                                    
+                                    <div class="">
+                                        <img class="customImg mt-2 " src="{{ Storage::url($article->image) }}" alt="">
                                         <h5 class="hover-underline-animation font-title">
                                             <a href="{{ route('article.show', $article) }}">
                                                 {{ $article->title }}
@@ -108,7 +109,7 @@
                                         </h5>
                                         <div class="d-flex justify-content-between">
                                             <p class="small text-muted text-capitalize fst-italic"><i
-                                                    class="fa-regular fa-user mx-2 "></i>Autore:
+                                                    class="fa-regular fa-user mx-1 "></i>Autore:
                                                 {{ $article->user->name }} il {{ $articles->first()->created_at->format('d/m/Y') }}</p>
                                             <p class="small fst-italic text-capitalize">
                                                 @foreach ($article->tags as $tag)
@@ -150,10 +151,11 @@
                     
                     <div class="card-article1">
                     @if ($article->category)
-                    <div class="d-flex justify-content-between">
-                        <span class="text-muted small fst-italic">tempo di lettura {{$article->readDuration()}} min</span>
+                    <div class="d-flex justify-content-between pb-2">
+                       
                         <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
                             class="">{{ $article->category->name }}</a>
+                            <span class="text-muted small fst-italic">tempo di lettura {{$article->readDuration()}} min</span>
                     </div>
                     
                         
@@ -168,17 +170,18 @@
                             <a href="{{ route('article.show', $article) }}">
                                 <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
                             </a>
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+
                                 <p class="small text-muted text-capitalize fst-italic"><i
-                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    class="fa-regular fa-user small">
+                                    </i>
                                     {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
-                                <p class="small fst-italic text-capitalize">
-                                    @foreach ($article->tags as $tag)
-                                        #{{ $tag->name }}
-                                    @endforeach
-                                </p>
-                                
-                            </div>
+                                </div>
+                            <p class="small fst-italic text-capitalize">
+                                @foreach ($article->tags as $tag)
+                                    #{{ $tag->name }}
+                                @endforeach
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -251,6 +254,7 @@
     </div>
 
 
+
         <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 6)->take(5) as $article)
                 
@@ -298,7 +302,8 @@
             </div>
             
         </div>
-    </div>    
+    </div>
+
 
 
         <div class="row mb-5  justify-content-around">
@@ -341,6 +346,7 @@
         {{-- Sezione Food & Drink --}}
 
     </div>
+
     <div class="container ">
         <div class="row">
             <div class="col-12">
@@ -350,6 +356,7 @@
           
         </div>
     </div>
+
 
 
         <div class="row mb-5 w-100 justify-content-around">
@@ -413,7 +420,7 @@
                             </a>
                             <div class="d-flex justify-content-between">
                                 <p class="small text-muted text-capitalize fst-italic"><i
-                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                        class="fa-regular fa-user"></i>Autore:
                                     {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
                                 <p class="small fst-italic text-capitalize">
                                     @foreach ($article->tags as $tag)
@@ -427,32 +434,58 @@
             @endforeach
 
         </div>
-        {{-- Sezione LiveNews --}}
 
-    <div class="container">
+
+    {{-- Sezione LiveNews --}}
+
+    <div class="container box-swiper">
         <div class="row">
-            <h2 class="my-5 fw-bold subTitle contenitore6">LIVE:NEWS</h2>
-            <div class="col-12 col-md-6 justify-content-center d-flex">
-
-                <iframe class="boxFrame" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
-            <div class="col-12 col-md-6 justify-content-center d-flex">
-                <iframe class="mb-5 boxFrame" src="https://www.youtube.com/embed/nTWOaWXmo0Y?controls=0"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen>
-                </iframe>
-            </div>
+            <h2 class="my-5 fw-bold subTitle ">LIVE:NEWS</h2>
+        <div class="col-12 p-0">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/9Auq9mYxFEE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/pUcmpyynASM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/HVB_Wx5T16g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/21X5lGlDOfg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/XmkHyAejK4Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="swiper-slide col-12 col-md-6"><iframe width="560" height="315" src="https://www.youtube.com/embed/URQtYtS7qrI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                </div>
+                <div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    
+                </div>
+                
+              </div>
+            
         </div>
-
+        </div>
     </div>
-
 
     
 
 
+      
+
+
+
+
+
+
+        
+            
+        
+   
+
+    
+
+
+   
+
+
+
+
 </x-layout>
+
+                

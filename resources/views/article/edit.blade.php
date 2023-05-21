@@ -58,8 +58,8 @@
                         <span class="small fst-italic">Dividi ogni tag con una virgola</span>
                     </div>
                     <div class="mt-2">
-                        <button class="btn btn-info text-black">Inserisci un articolo</button>
-                        <a class="btn btn-outline-info text-black" href="{{route('home')}}">Torna alla home</a>
+                        <button class="btn btn-my text-white">Inserisci un articolo</button>
+                        <a  href="{{ route('home') }}"><button class="btn btn-my2">Torna alla home</button></a>
                     </div>
                 </form>
             </div>

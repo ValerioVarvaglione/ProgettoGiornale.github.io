@@ -2,7 +2,7 @@
 
     <div class="container-fluid p-5 text-center text-black">
         <div class="row justify-content-center">
-            <h1>
+            <h1 class="display-4">
                 Bentornato Amministratore
             </h1>
         </div>
@@ -49,7 +49,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <h2>I tags della piattaforma</h2>
-                <x-metainfo-table :metaInfos="$tags" metaType="tags" />
+                <x-metainfo-table :metaInfos="$tags" class="text-withe" metaType="tags" />
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                 <form action="{{ route('admin.storeCategory')}}" class="d-flex" method="POST">
                     @csrf
                     <input type="text" name="name" class="form-control me-2" placeholder="Inserisci una nuova categoria">
-                    <button type="submit" class="btn btn-success text-white">Aggiungi</button>
+                    <button type="submit" class=" btn-my">Aggiungi</button>
                 </form>
             </div>
         </div>

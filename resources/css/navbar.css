@@ -3,7 +3,7 @@
 }
 .navbar .navbar-nav .nav-link {
   color: #000000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: normal;
 
 }
@@ -41,20 +41,11 @@
   }
 }
 
-/* .bg-custom {
-  background-image: linear-gradient(to right top, #1b191b, #222225, #292b2f, #2f3538, #373f40, #394345, #343e3d, #333d3b, #283230, #1d2826, #121e1c, #021512);
-}
-.custom-footer {
-  background-image: linear-gradient(to right top, #1b191b, #222225, #292b2f, #2f3538, #373f40, #353e3f, #343e3d, #333d3b, #283230, #1d2826, #121e1c, #021512);
-} */
+
 .bg-custom {
-background-color: rgba(128, 128, 128, 0.563);
+  background-image: linear-gradient(to right top, #373335, #343235, #303235, #2d3133, #2c3030, #2a2e2e, #292d2c, #272b2a, #242928, #222625, #1f2423, #1d2220);
 }
-.custom-footer {
-background-color:  rgba(128, 128, 128, 0.563);
 
-
-}
 
 
 .button-logout{

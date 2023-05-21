@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-custom " id="navbarColor">
+<nav id="navbarColor" class="navbar navbar-expand-lg navbar-light bg-custom " id="navbar">
     <div class="d-flex align-items-center justify-content-between">
 
         <a class="navbar-brand p-2" href="#"><img src="/media/occhio.png" class="img-custom"></a>
@@ -23,16 +23,16 @@
                     <li class="nav-item">
                         <a type="button" class="nav-link " data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
                             aria-controls="staticBackdrop">
-                            <i class="fa-solid fa-bars text-white"></i> <span class="text-white mx-2">MENU</span>
+                            <i class="fa-solid fa-bars text-white"></i> <span class="text-white fw-bold mx-2">MENU</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link link-custom text-white" href="{{ route('home') }}">HOME</a>
+                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('home') }}">HOME</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link link-custom text-white" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
+                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
 
@@ -41,13 +41,13 @@
 
                     @if (Auth::user())
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('article.create') }}">INSERISCI ARTICOLO
+                            <a class="nav-link text-white fw-bold" href="{{ route('article.create') }}">INSERISCI ARTICOLO
                             </a>
                         </li>
                     @endif
                     @if (Auth::user())
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                            <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     BENVENUTO {{strtoupper(Auth::user()->name) }}
                             </a>
@@ -58,12 +58,12 @@
                                                 class="fa-solid fa-envelope mx-1"></i> Lavora con noi</a></button>
                                 </li>
                                 <li class="nav-item">
-                                    <form action="{{ route('logout') }}"
+                                    <form class="d-flex mx-3" action="{{ route('logout') }}"
                                         method="post">
                                         @csrf
                                         <button class="button-logout" type="submit"><i
-                                                class="fa-solid fa-arrow-right-from-bracket text-black mx-1"></i>
-                                            Logout</button>
+                                                class="fa-solid fa-arrow-right-from-bracket text-black "></i>
+                                            LOGOUT</button>
                                     </form>
                                 </li>
                             </ul>
@@ -93,7 +93,7 @@
                     @endif
                     <li class="nav-item">
                         <a type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-2">CERCA</span></a>
+                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-2 fw-bold">CERCA</span></a>
 
                     </li>
                 </ul>
@@ -103,3 +103,6 @@
 
     
 </nav>
+
+
+

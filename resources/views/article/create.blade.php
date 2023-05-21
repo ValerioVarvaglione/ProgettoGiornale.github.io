@@ -1,9 +1,9 @@
 <x-layout>
 
-    <div class="container-fluid p-5 text-center text-dark">
+    <div class="container-fluid p-5 text-center text-dark ">
         <div class="row justify-content-center">
-            <h1 class="">
-                Inserisce il tuo articolo da giornale
+            <h1 class="display-4">
+                Inserisci il tuo articolo 
             </h1>
         </div>
     </div>
@@ -64,10 +64,9 @@
                     </div>
                     <div class="mt-2">
 
-                        <button class="btn btn-dark">Inserisci l'articolo per il
-                            giornale</button>
+                        <button class="btn btn-my">Inserisci l'articolo</button>
 
-                        <a href="{{ route('home') }}">Torna alla home</a>
+                        <a  href="{{ route('home') }}"><button class="btn btn-my2">Torna alla home</button></a>
                     </div>
                 </form>
             </div>

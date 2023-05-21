@@ -69,3 +69,16 @@
       width: 350px;
     }
   }
+
+
+        /* Nascondi il pulsante di cancellazione nel campo di input di ricerca */
+        .boxSearchForm input[type="search"]::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            appearance: none;
+            display: none;
+        }
+
+        .boxSearchForm input[type="search"]::-ms-clear {
+            display: none;
+        }
+   
