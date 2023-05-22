@@ -1,10 +1,11 @@
-<nav id="navbarColor" class="navbar navbar-expand-lg navbar-light bg-custom " id="navbar">
-    <div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center justify-content-center bg-custom">
 
-        <a class="navbar-brand p-2" href="#"><img src="/media/occhio.png" class="img-custom"></a>
+    <a class="navbar-brand p-2" href="#"><img id="navbarLogo" src="/media/occhio.png" class="navbarLogo"></a>
 
 
-    </div>
+</div>
+<nav id="navbarColor" class="navbar navbar-expand-lg navbar-light bg-custom sticky-top">
+    
 
     <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,23 +17,26 @@
 
 
 
-    <div class="container d-flex justify-content-center boxNavbar ">
-        <div class="row">
-            <div class="collapse navbar-collapse " id="navbarNav">
-                <ul class="navbar-nav mx-auto p-3">
-                    <li class="nav-item">
+    <div class="container d-flex justify-content-center boxNavbar">
+        <div class="row w-100">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav p-3 w-100 justify-content-between">
+                    <li id="menu" class="nav-item">
                         <a type="button" class="nav-link " data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
                             aria-controls="staticBackdrop">
-                            <i class="fa-solid fa-bars text-white"></i> <span class="text-white fw-bold mx-2">MENU</span>
+                            <i class="fa-solid fa-bars text-white"></i> <span  class="text-white fw-bold mx-2">Menu</span>
                         </a>
                     </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('home') }}">HOME</a>
+                    <li id="navLogo1" class="d-none mt-2"><a href="#"><img class="img-fluid" src="/media/occhio2.png" 
+                        ></a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
+                    <li class="nav-item central-links">
+                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('home') }}">Home</a>
+                    </li>
+
+                    <li class="nav-item central-links">
+                        <a class="nav-link link-custom text-white fw-bold" href="{{ route('article.index') }}">Tutti gli articoli</a>
                     </li>
 
 
@@ -40,16 +44,16 @@
 
 
                     @if (Auth::user())
-                        <li class="nav-item">
-                            <a class="nav-link text-white fw-bold" href="{{ route('article.create') }}">INSERISCI ARTICOLO
+                        <li class="nav-item central-links">
+                            <a class="nav-link text-white fw-bold" href="{{ route('article.create') }}">Inserisci articolo
                             </a>
                         </li>
                     @endif
                     @if (Auth::user())
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown central-links">
                             <a class="nav-link dropdown-toggle text-white fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    BENVENUTO {{strtoupper(Auth::user()->name) }}
+                                    Benvenuto {{strtoupper(Auth::user()->name) }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
@@ -63,7 +67,7 @@
                                         @csrf
                                         <button class="button-logout" type="submit"><i
                                                 class="fa-solid fa-arrow-right-from-bracket text-black "></i>
-                                            LOGOUT</button>
+                                            Logout</button>
                                     </form>
                                 </li>
                             </ul>
@@ -78,7 +82,7 @@
                                 <li class="nav-item">
                                     <a class="text-black nav-link @if (Route::currentRouteName() == 'register') active @endif"
                                         aria-current="page" href="{{ route('register') }}"><i
-                                            class="fa-solid fa-address-card mx-1"></i> Registrati</a>
+                                            class="fa-solid fa-address-card" mx-1></i>  Registrati</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -91,9 +95,9 @@
                             </ul>
                         </li>
                     @endif
-                    <li class="nav-item">
+                    <li id="search" class="nav-item ">
                         <a type="button" class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-2 fw-bold">CERCA</span></a>
+                            aria-controls="offcanvasTop"><i class="fa-solid fa-magnifying-glass text-white"></i><span class="text-white mx-2 fw-bold">Cerca</span></a>
 
                     </li>
                 </ul>

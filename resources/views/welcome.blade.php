@@ -196,15 +196,14 @@
     {{-- Sezione Politica --}}
 
 
-    <div class="container ">
-        <div class="row">
+    <div class="container">
+        <div class="row mx-auto">
             <div class="col-12">
                 <h2 class="my-5 fw-bold subTitle1 contenitore1">Politica</h2>
             </div>
+            
         </div>
-    </div>    
-
-
+        
         <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 1)->take(5) as $article)
                 
@@ -212,30 +211,38 @@
                     
                     <div class="card-article1">
                     @if ($article->category)
-                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
-                        class="">{{ $article->category->name }}</a>
+                    <div class="d-flex justify-content-between pb-2">
+                       
+                        <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                            class="">{{ $article->category->name }}</a>
+                            <span class="text-muted small fst-italic">tempo di lettura {{$article->readDuration()}} min</span>
+                    </div>
+                    
+                        
                     @else
                     <p class="small text-muted fst-italic text-capitalize">
                         Non categorizzato
                     </p>
                     @endif
-                        <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
+                        <div class=""><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
                         <div class="content p-0">
                             <a class="title-category" href="{{ route('article.show', $article) }}">{{ Str::limit($article->title,70) }}</a>
                             <a href="{{ route('article.show', $article) }}">
                                 <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
                             </a>
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+
                                 <p class="small text-muted text-capitalize fst-italic"><i
-                                        class="fa-regular fa-user mx-2 "></i>Autore:
+                                    class="fa-regular fa-user small">
+                                    </i>
                                     {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}
                                 </p>
-                                <p class="small fst-italic text-capitalize">
-                                    @foreach ($article->tags as $tag)
-                                        #{{ $tag->name }}
-                                    @endforeach
-                                </p>
-                            </div>
+                                </div>
+                            <p class="small fst-italic text-capitalize">
+                                @foreach ($article->tags as $tag)
+                                    #{{ $tag->name }}
+                                @endforeach
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -243,18 +250,18 @@
 
         </div>
 
+    </div>
 
+    
+   {{-- Sezione Tech --}}
 
-    {{-- Sezione Tech --}}
-
-    <div class="container ">
-        <div class="row">
+    <div class="container">
+        <div class="row mx-auto">
             <div class="col-12">
                 <h2 class="my-5 fw-bold subTitle1 contenitore2">Tech</h2>
             </div>
+            
         </div>
-    </div>
-
 
 
         <div class="row mb-5  justify-content-around">
@@ -390,16 +397,14 @@
 
     {{-- Sezione Intrattenimento --}}
 
-    <div class="container ">
-        <div class="row">
-            <div class="col">
-                <h2 class="my-5 fw-bold subTitle1 contenitore5">Intrattenimento</h2>
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-12">
+                <h2 class="my-5 fw-bold subTitle1 contenitore1">Intrattenimento</h2>
             </div>
+            
         </div>
-    </div>
-
-
-
+        
         <div class="row mb-5  justify-content-around">
             @foreach ($articles->where('category_id', 5)->take(5) as $article)
                 
@@ -407,8 +412,14 @@
                     
                     <div class="card-article1">
                     @if ($article->category)
-                    <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
-                        class="">{{ $article->category->name }}</a>
+                    <div class="d-flex justify-content-between pb-2">
+                       
+                        <a class=" small text-muted fst-italic text-capitalize" href="{{ route('article.byCategory', ['category' => $article->category->name]) }}"
+                            class="">{{ $article->category->name }}</a>
+                            <span class="text-muted small fst-italic">tempo di lettura {{$article->readDuration()}} min</span>
+                    </div>
+                    
+                        
                     @else
                     <p class="small text-muted fst-italic text-capitalize">
                         Non categorizzato
@@ -420,22 +431,27 @@
                             <a href="{{ route('article.show', $article) }}">
                                 <p class="desc">{{ Str::limit($article->subtitle, 120) }}</p>
                             </a>
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+
                                 <p class="small text-muted text-capitalize fst-italic"><i
-                                        class="fa-regular fa-user"></i>Autore:
-                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}</p>
-                                <p class="small fst-italic text-capitalize">
-                                    @foreach ($article->tags as $tag)
-                                        #{{ $tag->name }}
-                                    @endforeach
+                                    class="fa-regular fa-user small">
+                                    </i>
+                                    {{ $article->user->name }} il {{ $article->created_at->format('d/m/Y') }}
                                 </p>
-                            </div>
+                                </div>
+                            <p class="small fst-italic text-capitalize">
+                                @foreach ($article->tags as $tag)
+                                    #{{ $tag->name }}
+                                @endforeach
+                            </p>
                         </div>
                     </div>
                 </div>
             @endforeach
 
         </div>
+
+    </div>
 
 
     {{-- Sezione LiveNews --}}
@@ -465,29 +481,7 @@
         </div>
     </div>
 
-    
-
-
-      
-
-
-
-
-
-
-        
-            
-        
    
-
-    
-
-
-   
-
-
-
-
 </x-layout>
 
                 

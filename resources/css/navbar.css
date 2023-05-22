@@ -1,5 +1,7 @@
-.imglogo{
-  width: 150px;
+.navbarLogo{
+  width: 300px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 .navbar .navbar-nav .nav-link {
   color: #000000;
@@ -43,7 +45,8 @@
 
 
 .bg-custom {
-  background-image: linear-gradient(to right top, #373335, #343235, #303235, #2d3133, #2c3030, #2a2e2e, #292d2c, #272b2a, #242928, #222625, #1f2423, #1d2220);
+  background-color: #313131;
+  
 }
 
 
@@ -51,6 +54,12 @@
 .button-logout{
 border: none;
 background: none;
+}
+
+.boxNavbar{
+  height: 40px;
+  background-color: #313131;
+  
 }
 
 @media screen and (max-width: 700px) {
@@ -83,6 +92,52 @@ background: none;
   }
 }
 
+#navColor{
+  transition: 1s;
+}
+
+.navbar-scrolled {
+  position: sticky;
+  top: 0%;
+  background-color:  rgb(225, 27, 27);
+  height: 50px;
+  z-index: 100;
+  transition: 0.8s;
+}
+
+#navLogo1{
+width: 50px;
+margin-top: 10px;
+
+}
+
+
+
+.search-menu{
+  position: absolute;
+  top: 5px;
+  left: 100px;
+
+
+}
+
+.menu-search{
+  position: absolute;
+  top: 5px;
+  right: 100px;
+
+}
+
+.eye{
+  position: absolute;
+  top: 2px;
+
+
+}
+.searchMenu2{
+  width: 130px;
+  height: 100px;
+}
 
 
 

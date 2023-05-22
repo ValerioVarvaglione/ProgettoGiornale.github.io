@@ -45,4 +45,5 @@ class RevisorController extends Controller
         ]);
         return redirect(route('revisor.dashboard'))->with('message', 'Hai riportato l\'articolo scelto');
     }
+    
 }

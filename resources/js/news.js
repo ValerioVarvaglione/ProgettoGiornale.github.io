@@ -15,58 +15,58 @@
             setInterval(function() {
               document.getElementById("news").textContent = newsArray[newsIndex];
               newsIndex = (newsIndex + 1) % newsArray.length;
-            }, 7000); // Cambia notizia ogni 6 secondi
+            }, 8000); // Cambia notizia ogni 6 secondi
           }
       
           // Avvia la visualizzazione delle news
           showNews();
 
 
-          window.addEventListener('scroll', function() {
-            var navbar = document.getElementById('navbarColor');
-            var links = navbar.getElementsByClassName('nav-link');
+          // window.addEventListener('scroll', function() {
+          //   var navbar = document.getElementById('navbarColor');
+          //   var links = navbar.getElementsByClassName('nav-link');
             
-            // Aggiungi la classe active al link corrente durante lo scroll
-            for (var i = 0; i < links.length; i++) {
-              var link = links[i];
-              var sectionId = link.getAttribute('href').slice(1);
-              var section = document.getElementById(sectionId);
+          //   // Aggiungi la classe active al link corrente durante lo scroll
+          //   for (var i = 0; i < links.length; i++) {
+          //     var link = links[i];
+          //     var sectionId = link.getAttribute('href').slice(1);
+          //     var section = document.getElementById(sectionId);
               
-              if (section && isElementInViewport(section)) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            }
-          });
+          //     if (section && isElementInViewport(section)) {
+          //       link.classList.add('active');
+          //     } else {
+          //       link.classList.remove('active');
+          //     }
+          //   }
+          // });
           
-          // Funzione per verificare se un elemento è visibile nella viewport
-          function isElementInViewport(element) {
-            var rect = element.getBoundingClientRect();
-            return (
-              rect.top >= 0 &&
-              rect.left >= 0 &&
-              rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-              rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-            );
-          }
+          // // Funzione per verificare se un elemento è visibile nella viewport
+          // function isElementInViewport(element) {
+          //   var rect = element.getBoundingClientRect();
+          //   return (
+          //     rect.top >= 0 &&
+          //     rect.left >= 0 &&
+          //     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          //     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          //   );
+          // }
 
 
-          window.addEventListener('scroll', function() {
-            var navbar = document.getElementById('navbar');
-            var logo = document.querySelector('.navbar-brand');
-            var content = document.querySelector('.content');
+          // window.addEventListener('scroll', function() {
+          //   var navbar = document.getElementById('navbar');
+          //   var logo = document.querySelector('.navbar-brand');
+          //   var content = document.querySelector('.content');
           
-            if (window.pageYOffset > 50) {
-              logo.classList.add('visible');
-              navbar.classList.add('navbar-scroll');
-              content.style.marginTop = navbar.offsetHeight + 'px';
-            } else {
-              logo.classList.remove('visible');
-              navbar.classList.remove('navbar-scroll');
-              content.style.marginTop = '0';
-            }
-          });
+          //   if (window.pageYOffset > 50) {
+          //     logo.classList.add('visible');
+          //     navbar.classList.add('navbar-scroll');
+          //     content.style.marginTop = navbar.offsetHeight + 'px';
+          //   } else {
+          //     logo.classList.remove('visible');
+          //     navbar.classList.remove('navbar-scroll');
+          //     content.style.marginTop = '0';
+          //   }
+          // });
 
 
           // Swiper
@@ -97,28 +97,17 @@
           window.addEventListener('scroll', () => {
 
               if (window.scrollY > 100) {
-                  searchMenu.classList.add('search-menu');
-                  navbarColor.classList.add('navbar-scrolled');
-                  menuSearch.classList.add('menu-search');
-                  navLogo1.classList.add('eye');
-                  navbarLogo.src = ' ';
-                  navLogo1.src = '/media/Progetto_senza_titolo_5.png';
-                  navbarLinks.forEach(link => {
-                      link.style.display = 'none';
-
-                  });
-
+             
+                navLogo1.classList.remove('d-none')
+                document.querySelectorAll('.central-links').forEach(link => {
+                  link.classList.add('d-none')
+                });
               } else {
-                  navLogo1.src = ' ';
-                  searchMenu.classList.remove('search-menu');
-                  navbarColor.classList.remove('navbar-scrolled');
-                  menuSearch.classList.remove('menu-search');
-                  navLogo1.classList.remove('eye');
-
-                  navbarLogo.src = '/media/occhio.png';
-                  navbarLinks.forEach(link => {
-                      link.style.display = 'block';
-                  });
+                navLogo1.classList.add('d-none')
+                document.querySelectorAll('.central-links').forEach(link => {
+                  link.classList.remove('d-none')
+                });
+            
 
               }
 

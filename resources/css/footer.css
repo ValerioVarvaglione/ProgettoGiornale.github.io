@@ -46,12 +46,12 @@ body {
   
 } */
 
-.nav-link {
+.nav-link-footer {
   transition: all 0.3s ease;
   color: #ffffff;
 }
 
-.nav-link:hover {
+.nav-link-footer:hover {
   transform: translate(10px);
   color: #ffffffc7 !important;
 }
@@ -72,4 +72,6 @@ body {
 .lastLinkFooter {
   margin-top: 55px;
 }
+
+
 

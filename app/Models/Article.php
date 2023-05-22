@@ -33,7 +33,7 @@ class Article extends Model
                 'id' => $this->id,
                 'title' => $this->title,
                 'body' => $this->body,
-                'category_id' => $this->category_id,
+                'category' => $this->category->name,
         ];
     }
 

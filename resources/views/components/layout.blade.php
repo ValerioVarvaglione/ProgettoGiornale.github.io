@@ -106,6 +106,10 @@
                             href="{{ route('article.byCategory', ['category' => 'Food&Drink']) }}">FOOD AND DRINK</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link text-dark"
+                            href="{{ route('article.byCategory', ['category' => 'Intrattenimento']) }}">INTRATTENIMENTO</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-dark" href="{{ route('article.index') }}">TUTTI GLI ARTICOLI</a>
                     </li>
 
