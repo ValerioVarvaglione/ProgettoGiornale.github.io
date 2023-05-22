@@ -36,17 +36,21 @@
           </div>
           <div class="col-md-6">
               <h5 class="fs-5">CONTACT US</h5>
-              <form class="my-4">
-                <fieldset class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                </fieldset>
-                <fieldset class="form-group">
-                    <textarea class="form-control text-form" id="exampleMessage" placeholder="Message"></textarea>
-                </fieldset>
-                <fieldset class="form-group text-xs-right">
-                    <button type="button" class="btn  btn-lg text-white">Send</button>
-                </fieldset>
-            </form>
+              <form class="p-5" action="{{route('careers.submit')}}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input name="email" type="email" class="form-control" id="email"
+                        value="{{ old('email') ?? Auth::user()->email }}">
+                </div>
+                <div>
+                    <label for="message" class="form-label">Parlaci di te</label>
+                    <textarea name="message" id="message" cols="30" rows="7" class="form-control">{{ old('message') }}</textarea>
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-white text-white">Invia la tua candidatura</button>
+                </div>
+              </form>
           </div>
       </div>
   </div>
