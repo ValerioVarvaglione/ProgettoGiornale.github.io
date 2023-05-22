@@ -1,26 +1,26 @@
-<div class="d-flex align-items-center justify-content-center bg-custom">
-
-    <a class="navbar-brand p-2" href="#"><img id="navbarLogo" src="/media/occhio.png" class="navbarLogo"></a>
-
-
-</div>
-<nav id="navbarColor" class="navbar navbar-expand-lg navbar-light bg-custom sticky-top">
-    
-
-    <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="text-white"><i class="fa-solid fa-bars"></i></span>
-    </button>
+<nav id="navbarColor" class="navbar navbar-expand-lg navbar-light bg-custom">
+        <div class="d-flex align-items-center justify-content-between justify-content-md-center bg-custom w-100">
+            <img src="/media/occhio.png" class="navbarLogo">
+        
+            <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="text-white"><i class="fa-solid fa-bars"></i></span>
+            </button>
+        
 
 
+        </div>
+        
 
 
 
 
-    <div class="container d-flex justify-content-center boxNavbar">
+
+
+    <div class="container d-flex justify-content-center">
         <div class="row w-100">
-            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-                <ul class="navbar-nav p-3 w-100 justify-content-between">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav p-3 w-100 justify-content-center">
                     <li id="menu" class="nav-item">
                         <a type="button" class="nav-link " data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
                             aria-controls="staticBackdrop">

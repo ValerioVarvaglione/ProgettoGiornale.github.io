@@ -85,33 +85,33 @@
 
           // Navbar
 
-          let navbarColor = document.getElementById('navbarColor');
-          let navbarLogo = document.getElementById('navbarLogo');
-          let navLogo1 = document.getElementById('navLogo1');
-          let navbarLinks = document.querySelectorAll('#navbarColor .nav-link:not([data-bs-toggle="offcanvas"])');
-          let searchMenu = document.getElementById('menu');
-          let menuSearch = document.getElementById('search');
+          // let navbarColor = document.getElementById('navbarColor');
+          // let navbarLogo = document.getElementById('navbarLogo');
+          // let navLogo1 = document.getElementById('navLogo1');
+          // let navbarLinks = document.querySelectorAll('#navbarColor .nav-link:not([data-bs-toggle="offcanvas"])');
+          // let searchMenu = document.getElementById('menu');
+          // let menuSearch = document.getElementById('search');
 
 
 
-          window.addEventListener('scroll', () => {
+          // window.addEventListener('scroll', () => {
 
-              if (window.scrollY > 100) {
+          //     if (window.scrollY > 100) {
              
-                navLogo1.classList.remove('d-none')
-                document.querySelectorAll('.central-links').forEach(link => {
-                  link.classList.add('d-none')
-                });
-              } else {
-                navLogo1.classList.add('d-none')
-                document.querySelectorAll('.central-links').forEach(link => {
-                  link.classList.remove('d-none')
-                });
+          //       navLogo1.classList.remove('d-none')
+          //       document.querySelectorAll('.central-links').forEach(link => {
+          //         link.classList.add('d-none')
+          //       });
+          //     } else {
+          //       navLogo1.classList.add('d-none')
+          //       document.querySelectorAll('.central-links').forEach(link => {
+          //         link.classList.remove('d-none')
+          //       });
             
 
-              }
+          //     }
 
-          });
+          // });
 
     
          

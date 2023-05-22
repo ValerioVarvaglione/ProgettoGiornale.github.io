@@ -3,6 +3,20 @@
   padding-top: 20px;
   padding-bottom: 10px;
 }
+
+@media only screen and (max-width: 500px) {
+  .navbarLogo{
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .navbarLogo{
+    width: 180px;
+  }
+}
+
+
 .navbar .navbar-nav .nav-link {
   color: #000000;
   font-size: 16px;
@@ -23,6 +37,8 @@
   .navbar {
     flex-direction: column;
   }
+
+  
 
   .navbar .nav-item {
     padding: 0.5em 1em;
