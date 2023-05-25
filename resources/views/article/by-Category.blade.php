@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row py-4">
             @foreach ($articles as $article)
-                <div class="col-12 col-md-3 d-flex justify-content-center mb-4">
+                <div class="col-12 col-md-4 d-flex justify-content-center mb-4">
                     <div class="card-article">
                         <div class="image"><img class="image" src="{{ Storage::url($article->image) }}" alt=""></div>
                         <div class="content">

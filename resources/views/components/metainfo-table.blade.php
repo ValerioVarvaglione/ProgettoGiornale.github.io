@@ -3,7 +3,7 @@
         <thead class="table-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nome tag</th>
+                <th scope="col">Nome Categoria</th>
                 <th scope="col">Quantità articoli collegati</th>
                 <th class="" scope="col">Aggiorna</th>
                 <th scope="col">Cancella</th>

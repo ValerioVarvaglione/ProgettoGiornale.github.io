@@ -42,7 +42,7 @@
                             <tbody>
                                 <tr>
                                     <td class="esd-stripe" align="center">
-                                        <table bgcolor="#ffffff" class="es-header-body" align="center" cellpadding="0" cellspacing="0" width="600">
+                                        <table bgcolor="#ffffff" class="es-header-body" align="center" cellpadding="" cellspacing="" width="600">
                                             <tbody>
                                                 <tr>
                                                     <td class="esd-structure es-p20" align="left" bgcolor="#999999" style="background-color: #999999;">
@@ -96,11 +96,11 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="esd-structure es-p40" align="left" bgcolor="#cccccc" style="background-color: #cccccc;">
-                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                        <table cellpadding="10" cellspacing="10" width="100%">
                                                             <tbody>
                                                                 <tr>
                                                                     <td width="520" class="esd-container-frame" align="center" valign="top">
-                                                                        <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#cccccc" style="background-color: #cccccc; border-radius: 20px; border-collapse: separate;">
+                                                                        <table cellpadding="10" cellspacing="10" width="100%" bgcolor="#cccccc" style="background-color: #cccccc; border-radius: 20px; border-collapse: separate;">
                                                                             <tbody>
                                                                                 <tr>
                                                                                     <td align="center" class="esd-block-text es-p30t es-p10b es-p20r es-p20l">

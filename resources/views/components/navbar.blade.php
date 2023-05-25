@@ -66,13 +66,14 @@
                                         method="post">
                                         @csrf
                                         <button class="button-logout" type="submit"><i
-                                                class="fa-solid fa-arrow-right-from-bracket text-black "></i>
+                                                class="fa-solid fa-arrow-right-from-bracket text-black"></i>
                                             Logout</button>
                                     </form>
                                 </li>
                             </ul>
                         </li>
                     @else
+                    
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">

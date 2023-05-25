@@ -1,77 +1,53 @@
-/* Sticky footer position and size
--------------------------------------------------- /
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  / Margin bottom by footer height /
-  margin-bottom: 300px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  / Set the fixed height of the footer here /
-  height: 300px;
-}
-
-/ Taller footer on small screens /
-@media (max-width: 567em) {
-    body {
-      margin-bottom: 700px;
-    }
-    .footer {
-      height: 700px;
-    }
-}
-
-/ Sticky footer style and color
--------------------------------------------------- */
-.footer {
-  padding-top: 30px;
-  background-image: linear-gradient(to right top, #373335, #343235, #303235, #2d3133, #2c3030, #2a2e2e, #292d2c, #272b2a, #242928, #222625, #1f2423, #1d2220);
-  color: #bbb;
-}
-
-.footer a {
-  color: #999;
-  text-decoration:none;
-  transition: all 0.3s ease;
-}
-
-/* .footer a:hover, footer a:focus {
-  color: #aaa;
-  text-decoration:none;
+.footer{
+  background-color: #313131;
+  padding:30px 0px;
+  font-family: 'Play', sans-serif;
+  text-align:center;
+  }
   
-} */
+  .footer .row{
+  width:100%;
+  margin:1% 0%;
+  padding:0.6% 0%;
+  color:rgb(214, 214, 214);
+  font-size:14px;
+  }
+  
+  .footer .row a{
+  text-decoration:none;
+  color:rgb(238, 229, 229);
+  transition:0.5s;
+  }
 
-.nav-link-footer {
-  transition: all 0.3s ease;
-  color: #ffffff;
-}
-
-.nav-link-footer:hover {
-  transform: translate(10px);
-  color: #ffffffc7 !important;
-}
-
-.footer .form-control {
-    background-color: #1f2022;
-    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
-    border: none;
-    resize: none;
-    color: #d1d2d2;
-    padding: 0.7em 1em;
-}
-
-.customLogoFooter {
-  width: 30px;
-}
-
-.lastLinkFooter {
-  margin-top: 55px;
-}
-
-
-
+  .footer .row a:hover{
+  color:#fff;
+  }
+  
+  .footer .row ul{
+  width:100%;
+  }
+  
+  .footer .row ul li{
+  display:inline-block;
+  margin:0px 30px;
+  }
+  
+  .footer .row a i{
+  font-size:2em;
+  margin:0% 1%;
+  }
+  
+  @media (max-width:720px){
+  .footer{
+  text-align:left;
+  padding:5%;
+  }
+  .footer .row ul li{
+  display:block;
+  margin:10px 0px;
+  text-align:left;
+  }
+  .footer .row a i{
+  margin:0% 3%;
+  }
+  }
